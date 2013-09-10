@@ -59,17 +59,103 @@
 #progressBar{
 	height: 4px;
 	background-color: #000;
-	@include radius(4px);
 	position: relative;
 	.marker{
 		height: 10px;
 		@include radius(10px);
 		background-color: #13ecec;
-		left:100px;
+		left:0%;
 		display: block;
 		width: 10px;
 		top:-3px;
 		position: absolute;
 		@include box-shadow(rgba(19, 236, 236, 0.4)  0px 0px 7px 3px); 
+		margin-left: -4px;
+		opacity: 0.9;
+	}
+}
+.mapPanel{
+	@include radius(10px);
+	border-color: #13ecec;
+	border-width: 2px;
+}
+#map-canvas{
+	width: 100%;
+	height: 600px;
+}
+.row .row{
+	margin-bottom: 20px;
+}
+#map-canvas *, #map-canvas *:before, #map-canvas *:after {
+	-moz-box-sizing: content-box!important;
+	-webkit-box-sizing: content-box!important;
+	box-sizing: content-box!important;  
+}
+#map-canvas img {
+	max-width: none;
+}
+#map-canvas label {
+	width: auto;
+	display: inline;
+}
+#map-canvas .columns{
+	padding: 0;
+	.twitterImage{
+		max-width: auto;
+	}
+	margin: 0;
+}
+#map-canvas .row{
+	clear: both;
+}
+#map-canvas img.twitterImage{
+	width: 100%;
+	float: right;
+}
+#labels{
+	position: relative;
+	h3{
+		border-left: 3px solid #000;
+		position: absolute;
+		margin: 0;
+		padding-left: 6px;
+		font-size: 16px;
+	}
+	#paris{
+		left:0%;
+	}
+	#vernon{
+		left:30%;
+	}
+	#newhaven{
+		left:60%;
+	}
+	#london{
+		left:auto;
+		right:0;
+		border-left: 0px;
+		border-right: 3px solid #000;
+		padding-left: 0px;
+		padding-right: 6px;
+	}
+	height: 50px;
+}
+
+#tweetDetails{
+	position: absolute;
+	width: 800px;
+	top: 20%;
+	right:0;
+	background-color: rgba(255,255,255,0.8);
+	border-color: rgba(0,0,0,0.5);
+	border-width: 3px 0px 3px 3px;
+	border-style: solid;
+	#prevTweet, #nextTweet{
+		position: relative;
+		display: block;
+		margin-top: 50px;
+	}
+	#nextTweet{
+		float: right;
 	}
 }

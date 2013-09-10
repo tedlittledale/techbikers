@@ -1,0 +1,980 @@
+{
+    "meta": {
+        "facets": {
+            "demographic.gender": {
+                "_type": "terms",
+                "missing": 189242,
+                "other": 0,
+                "terms": [
+                    {
+                        "count": 151433,
+                        "term": "female"
+                    },
+                    {
+                        "count": 86056,
+                        "term": "male"
+                    },
+                    {
+                        "count": 69248,
+                        "term": "unisex"
+                    },
+                    {
+                        "count": 32138,
+                        "term": "mostly_female"
+                    },
+                    {
+                        "count": 24282,
+                        "term": "mostly_male"
+                    }
+                ],
+                "total": 363157
+            },
+            "histogram-interaction.created_at": {
+                "_type": "date_histogram",
+                "entries": [
+                    {
+                        "count": 5,
+                        "time": 1377973800000
+                    },
+                    {
+                        "count": 236,
+                        "time": 1377973860000
+                    },
+                    {
+                        "count": 390,
+                        "time": 1377973920000
+                    },
+                    {
+                        "count": 385,
+                        "time": 1377973980000
+                    },
+                    {
+                        "count": 379,
+                        "time": 1377974040000
+                    },
+                    {
+                        "count": 406,
+                        "time": 1377974100000
+                    },
+                    {
+                        "count": 476,
+                        "time": 1377974160000
+                    },
+                    {
+                        "count": 550,
+                        "time": 1377974220000
+                    },
+                    {
+                        "count": 523,
+                        "time": 1377974280000
+                    },
+                    {
+                        "count": 477,
+                        "time": 1377974340000
+                    },
+                    {
+                        "count": 581,
+                        "time": 1377974400000
+                    },
+                    {
+                        "count": 505,
+                        "time": 1377974460000
+                    },
+                    {
+                        "count": 815,
+                        "time": 1377974520000
+                    },
+                    {
+                        "count": 995,
+                        "time": 1377974580000
+                    },
+                    {
+                        "count": 881,
+                        "time": 1377974640000
+                    },
+                    {
+                        "count": 746,
+                        "time": 1377974700000
+                    },
+                    {
+                        "count": 839,
+                        "time": 1377974760000
+                    },
+                    {
+                        "count": 863,
+                        "time": 1377974820000
+                    },
+                    {
+                        "count": 821,
+                        "time": 1377974880000
+                    },
+                    {
+                        "count": 723,
+                        "time": 1377974940000
+                    },
+                    {
+                        "count": 958,
+                        "time": 1377975000000
+                    },
+                    {
+                        "count": 1011,
+                        "time": 1377975060000
+                    },
+                    {
+                        "count": 1048,
+                        "time": 1377975120000
+                    },
+                    {
+                        "count": 1484,
+                        "time": 1377975180000
+                    },
+                    {
+                        "count": 1932,
+                        "time": 1377975240000
+                    },
+                    {
+                        "count": 1797,
+                        "time": 1377975300000
+                    },
+                    {
+                        "count": 1786,
+                        "time": 1377975360000
+                    },
+                    {
+                        "count": 1941,
+                        "time": 1377975420000
+                    },
+                    {
+                        "count": 2626,
+                        "time": 1377975480000
+                    },
+                    {
+                        "count": 5704,
+                        "time": 1377975540000
+                    },
+                    {
+                        "count": 5712,
+                        "time": 1377975600000
+                    },
+                    {
+                        "count": 6089,
+                        "time": 1377975660000
+                    },
+                    {
+                        "count": 8617,
+                        "time": 1377975720000
+                    },
+                    {
+                        "count": 6483,
+                        "time": 1377975780000
+                    },
+                    {
+                        "count": 5981,
+                        "time": 1377975840000
+                    },
+                    {
+                        "count": 5495,
+                        "time": 1377975900000
+                    },
+                    {
+                        "count": 7484,
+                        "time": 1377975960000
+                    },
+                    {
+                        "count": 6858,
+                        "time": 1377976020000
+                    },
+                    {
+                        "count": 5491,
+                        "time": 1377976080000
+                    },
+                    {
+                        "count": 5526,
+                        "time": 1377976140000
+                    },
+                    {
+                        "count": 7179,
+                        "time": 1377976200000
+                    },
+                    {
+                        "count": 6393,
+                        "time": 1377976260000
+                    },
+                    {
+                        "count": 7942,
+                        "time": 1377976320000
+                    },
+                    {
+                        "count": 13504,
+                        "time": 1377976380000
+                    },
+                    {
+                        "count": 10929,
+                        "time": 1377976440000
+                    },
+                    {
+                        "count": 10082,
+                        "time": 1377976500000
+                    },
+                    {
+                        "count": 7881,
+                        "time": 1377976560000
+                    },
+                    {
+                        "count": 6346,
+                        "time": 1377976620000
+                    },
+                    {
+                        "count": 5117,
+                        "time": 1377976680000
+                    },
+                    {
+                        "count": 4424,
+                        "time": 1377976740000
+                    },
+                    {
+                        "count": 5357,
+                        "time": 1377976800000
+                    },
+                    {
+                        "count": 5550,
+                        "time": 1377976860000
+                    },
+                    {
+                        "count": 7267,
+                        "time": 1377976920000
+                    },
+                    {
+                        "count": 4910,
+                        "time": 1377976980000
+                    },
+                    {
+                        "count": 3541,
+                        "time": 1377977040000
+                    },
+                    {
+                        "count": 4527,
+                        "time": 1377977100000
+                    },
+                    {
+                        "count": 5634,
+                        "time": 1377977160000
+                    },
+                    {
+                        "count": 6028,
+                        "time": 1377977220000
+                    },
+                    {
+                        "count": 8362,
+                        "time": 1377977280000
+                    },
+                    {
+                        "count": 11312,
+                        "time": 1377977340000
+                    },
+                    {
+                        "count": 9984,
+                        "time": 1377977400000
+                    },
+                    {
+                        "count": 8031,
+                        "time": 1377977460000
+                    },
+                    {
+                        "count": 6556,
+                        "time": 1377977520000
+                    },
+                    {
+                        "count": 5583,
+                        "time": 1377977580000
+                    },
+                    {
+                        "count": 4231,
+                        "time": 1377977640000
+                    },
+                    {
+                        "count": 3959,
+                        "time": 1377977700000
+                    },
+                    {
+                        "count": 3827,
+                        "time": 1377977760000
+                    },
+                    {
+                        "count": 4512,
+                        "time": 1377977820000
+                    },
+                    {
+                        "count": 3668,
+                        "time": 1377977880000
+                    },
+                    {
+                        "count": 3319,
+                        "time": 1377977940000
+                    },
+                    {
+                        "count": 3966,
+                        "time": 1377978000000
+                    },
+                    {
+                        "count": 4606,
+                        "time": 1377978060000
+                    },
+                    {
+                        "count": 4832,
+                        "time": 1377978120000
+                    },
+                    {
+                        "count": 4821,
+                        "time": 1377978180000
+                    },
+                    {
+                        "count": 6504,
+                        "time": 1377978240000
+                    },
+                    {
+                        "count": 6940,
+                        "time": 1377978300000
+                    },
+                    {
+                        "count": 7013,
+                        "time": 1377978360000
+                    },
+                    {
+                        "count": 6566,
+                        "time": 1377978420000
+                    },
+                    {
+                        "count": 6604,
+                        "time": 1377978480000
+                    },
+                    {
+                        "count": 5869,
+                        "time": 1377978540000
+                    },
+                    {
+                        "count": 5015,
+                        "time": 1377978600000
+                    },
+                    {
+                        "count": 4482,
+                        "time": 1377978660000
+                    },
+                    {
+                        "count": 4178,
+                        "time": 1377978720000
+                    },
+                    {
+                        "count": 3674,
+                        "time": 1377978780000
+                    },
+                    {
+                        "count": 4104,
+                        "time": 1377978840000
+                    },
+                    {
+                        "count": 5419,
+                        "time": 1377978900000
+                    },
+                    {
+                        "count": 8072,
+                        "time": 1377978960000
+                    },
+                    {
+                        "count": 6601,
+                        "time": 1377979020000
+                    },
+                    {
+                        "count": 6080,
+                        "time": 1377979080000
+                    },
+                    {
+                        "count": 5834,
+                        "time": 1377979140000
+                    },
+                    {
+                        "count": 6980,
+                        "time": 1377979200000
+                    },
+                    {
+                        "count": 7793,
+                        "time": 1377979260000
+                    },
+                    {
+                        "count": 6475,
+                        "time": 1377979320000
+                    },
+                    {
+                        "count": 7116,
+                        "time": 1377979380000
+                    },
+                    {
+                        "count": 7992,
+                        "time": 1377979440000
+                    },
+                    {
+                        "count": 6169,
+                        "time": 1377979500000
+                    },
+                    {
+                        "count": 4742,
+                        "time": 1377979560000
+                    },
+                    {
+                        "count": 4673,
+                        "time": 1377979620000
+                    },
+                    {
+                        "count": 4137,
+                        "time": 1377979680000
+                    },
+                    {
+                        "count": 3671,
+                        "time": 1377979740000
+                    },
+                    {
+                        "count": 3320,
+                        "time": 1377979800000
+                    },
+                    {
+                        "count": 3102,
+                        "time": 1377979860000
+                    },
+                    {
+                        "count": 3355,
+                        "time": 1377979920000
+                    },
+                    {
+                        "count": 3316,
+                        "time": 1377979980000
+                    },
+                    {
+                        "count": 3844,
+                        "time": 1377980040000
+                    },
+                    {
+                        "count": 7317,
+                        "time": 1377980100000
+                    },
+                    {
+                        "count": 7257,
+                        "time": 1377980160000
+                    },
+                    {
+                        "count": 6475,
+                        "time": 1377980220000
+                    },
+                    {
+                        "count": 5066,
+                        "time": 1377980280000
+                    },
+                    {
+                        "count": 4738,
+                        "time": 1377980340000
+                    },
+                    {
+                        "count": 3676,
+                        "time": 1377980400000
+                    },
+                    {
+                        "count": 2940,
+                        "time": 1377980460000
+                    },
+                    {
+                        "count": 2512,
+                        "time": 1377980520000
+                    },
+                    {
+                        "count": 2239,
+                        "time": 1377980580000
+                    },
+                    {
+                        "count": 2001,
+                        "time": 1377980640000
+                    },
+                    {
+                        "count": 1707,
+                        "time": 1377980700000
+                    },
+                    {
+                        "count": 1511,
+                        "time": 1377980760000
+                    },
+                    {
+                        "count": 1453,
+                        "time": 1377980820000
+                    },
+                    {
+                        "count": 1434,
+                        "time": 1377980880000
+                    },
+                    {
+                        "count": 1478,
+                        "time": 1377980940000
+                    },
+                    {
+                        "count": 1432,
+                        "time": 1377981000000
+                    },
+                    {
+                        "count": 1333,
+                        "time": 1377981060000
+                    },
+                    {
+                        "count": 1267,
+                        "time": 1377981120000
+                    },
+                    {
+                        "count": 1194,
+                        "time": 1377981180000
+                    },
+                    {
+                        "count": 1132,
+                        "time": 1377981240000
+                    },
+                    {
+                        "count": 997,
+                        "time": 1377981300000
+                    },
+                    {
+                        "count": 974,
+                        "time": 1377981360000
+                    },
+                    {
+                        "count": 978,
+                        "time": 1377981420000
+                    },
+                    {
+                        "count": 938,
+                        "time": 1377981480000
+                    },
+                    {
+                        "count": 938,
+                        "time": 1377981540000
+                    },
+                    {
+                        "count": 1265,
+                        "time": 1377981600000
+                    },
+                    {
+                        "count": 1174,
+                        "time": 1377981660000
+                    },
+                    {
+                        "count": 1120,
+                        "time": 1377981720000
+                    },
+                    {
+                        "count": 974,
+                        "time": 1377981780000
+                    },
+                    {
+                        "count": 953,
+                        "time": 1377981840000
+                    },
+                    {
+                        "count": 1004,
+                        "time": 1377981900000
+                    },
+                    {
+                        "count": 884,
+                        "time": 1377981960000
+                    },
+                    {
+                        "count": 940,
+                        "time": 1377982020000
+                    },
+                    {
+                        "count": 871,
+                        "time": 1377982080000
+                    },
+                    {
+                        "count": 788,
+                        "time": 1377982140000
+                    }
+                ]
+            },
+            "interaction.source": {
+                "_type": "terms",
+                "missing": 0,
+                "other": 1139,
+                "terms": [
+                    {
+                        "count": 268896,
+                        "term": "Twitter for iPhone"
+                    },
+                    {
+                        "count": 84324,
+                        "term": "web"
+                    },
+                    {
+                        "count": 80549,
+                        "term": "Twitter for Android"
+                    },
+                    {
+                        "count": 39149,
+                        "term": "Twitter for BlackBerry®"
+                    },
+                    {
+                        "count": 36189,
+                        "term": "Twitter for iPad"
+                    },
+                    {
+                        "count": 7820,
+                        "term": "iOS"
+                    },
+                    {
+                        "count": 5737,
+                        "term": "Mobile Web (M2)"
+                    },
+                    {
+                        "count": 5071,
+                        "term": "Twitter for Windows Phone"
+                    },
+                    {
+                        "count": 3775,
+                        "term": "TweetDeck"
+                    },
+                    {
+                        "count": 3648,
+                        "term": "Echofon"
+                    },
+                    {
+                        "count": 3264,
+                        "term": "Mobile Web (M5)"
+                    }
+                ],
+                "total": 552399
+            },
+            "secondsync.hashtags": {
+                "_type": "terms",
+                "missing": 250114,
+                "other": 48627,
+                "terms": [
+                    {
+                        "count": 272403,
+                        "term": "xfactor"
+                    },
+                    {
+                        "count": 3131,
+                        "term": "thexfactor"
+                    },
+                    {
+                        "count": 1886,
+                        "term": "mrso"
+                    },
+                    {
+                        "count": 1673,
+                        "term": "imessedmypants"
+                    },
+                    {
+                        "count": 1415,
+                        "term": "jstar"
+                    },
+                    {
+                        "count": 1219,
+                        "term": "fabulous"
+                    },
+                    {
+                        "count": 1207,
+                        "term": "xfactoruk"
+                    },
+                    {
+                        "count": 1072,
+                        "term": "xf2013"
+                    },
+                    {
+                        "count": 1026,
+                        "term": "tommann"
+                    },
+                    {
+                        "count": 857,
+                        "term": "hilarious"
+                    },
+                    {
+                        "count": 825,
+                        "term": "syria"
+                    }
+                ],
+                "total": 349538
+            }
+        },
+        "limit": 200,
+        "next": "/api/v1/tweet/?secondsync.transmission.id=884299&interaction.created_at__gte=1377973800000&period=minute&facet=histogram-interaction.created_at&limit=200&offset=200&interaction.created_at__lte=1377982200000",
+        "offset": 0,
+        "previous": null,
+        "total_count": 552399
+    },
+    "objects": [
+        {
+            "_id": "884299-373897981566943232",
+            "demographic": {
+                "gender": "mostly_female"
+            },
+            "interaction": {
+                "author": {
+                    "avatar": "https://si0.twimg.com/profile_images/1709567704/317774_10150795718560411_652980410_20689740_2110145982_n_normal.jpg",
+                    "id": 500101487,
+                    "language": "en",
+                    "link": "http://twitter.com/_superted",
+                    "name": "Ted Littledale",
+                    "username": "_superted"
+                },
+                "content": "Cuppa tea, xfactor and some vintage buttons 😍#saturdaynightsin http://t.co/0n8Okc8GDd",
+                "created_at": "Sat, 31 Aug 2013 20:00:00 +0000",
+                "id": "1e31277eabe6a000e07480641a4bd0fe",
+                "link": "http://twitter.com/Jadakins26/statuses/373897981566943232",
+                "schema": {
+                    "version": 3
+                },
+                "source": "Twitter for iPhone",
+                "tags": [
+                    "interaction.content:xfactor"
+                ],
+                "type": "twitter"
+            },
+            "klout": {
+                "score": 22
+            },
+            "language": {
+                "confidence": 100,
+                "tag": "en"
+            },
+            "resource_uri": "/api/v1/tweet/884299-373897981566943232/",
+            "salience": {
+                "content": {
+                    "sentiment": 0
+                }
+            },
+            "secondsync": {
+                "environment": "production",
+                "geo": {
+                    "lat": 48.88059,
+                    "lon": 2.352287
+                },
+                "geo_method": "none",
+                "hashtags": [
+                    "saturdaynightsin"
+                ],
+                "include": true,
+                "include_result_reason": {
+                    "reason": "default"
+                },
+                "last_enriched_at": "Sat, 31 Aug 2013 20:00:57 +0000",
+                "last_indexed_at": "Sat, 31 Aug 2013 20:00:57 +0000",
+                "place": {},
+                "reach": 47,
+                "received_at": "Sat, 31 Aug 2013 20:00:00 +0000",
+                "sentiment": 0.04091208072926872,
+                "sentiment_term": "neutral",
+                "source": "datasift",
+                "tag_counts": {
+                    "interaction__tags": 1
+                },
+                "transmission": {
+                    "all_cluster_tags": [],
+                    "channel": {
+                        "id": 3,
+                        "territory": {
+                            "id": 1,
+                            "name": "UK"
+                        }
+                    },
+                    "cluster_tags": [],
+                    "daypart_mediacom": "late_peak",
+                    "episode": {
+                        "cluster_tags": [],
+                        "id": 584690,
+                        "series": {
+                            "cluster_tags": [],
+                            "id": 14328
+                        }
+                    },
+                    "id": 884299,
+                    "include_in_listings": true,
+                    "timezone": {
+                        "name": "Europe/London"
+                    },
+                    "tx": "Sat, 31 Aug 2013 19:00:00 +0000"
+                }
+            },
+            "twitter": {
+                "created_at": "Sat, 31 Aug 2013 20:00:00 +0000",
+                "filter_level": "medium",
+                "hashtags": [
+                    "saturdaynightsin"
+                ],
+                "id": "373897981566943232",
+                "lang": "en",
+                "media": [
+                    {
+                        "display_url": "pic.twitter.com/0n8Okc8GDd",
+                        "expanded_url": "http://twitter.com/Jadakins26/status/373897981566943232/photo/1",
+                        "id": 373897981407555600,
+                        "id_str": "373897981407555584",
+                        "media_url": "http://pbs.twimg.com/media/BSJOpxvCMAAjFc7.jpg",
+                        "media_url_https": "https://pbs.twimg.com/media/BSJOpxvCMAAjFc7.jpg",
+                        "sizes": {
+                            "large": {
+                                "h": 1024,
+                                "resize": "fit",
+                                "w": 768
+                            },
+                            "medium": {
+                                "h": 800,
+                                "resize": "fit",
+                                "w": 600
+                            },
+                            "small": {
+                                "h": 453,
+                                "resize": "fit",
+                                "w": 340
+                            },
+                            "thumb": {
+                                "h": 150,
+                                "resize": "crop",
+                                "w": 150
+                            }
+                        },
+                        "type": "photo",
+                        "url": "http://t.co/0n8Okc8GDd"
+                    }
+                ],
+                "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #techbikers #bikesup",
+                "user": {
+                    "created_at": "Wed, 22 Feb 2012 20:10:23 +0000",
+                    "description": "Don't let your past dictate your future, what's done is done just live for today #NOREGRETS",
+                    "favourites_count": 68,
+                    "followers_count": 47,
+                    "friends_count": 98,
+                    "id": 500101487,
+                    "id_str": "500101487",
+                    "lang": "en",
+                    "name": "Ted Littledale",
+                    "profile_image_url": "https://si0.twimg.com/profile_images/1709567704/317774_10150795718560411_652980410_20689740_2110145982_n_normal.jpg",
+                    "screen_name": "_superted",
+                    "statuses_count": 559
+                }
+            }
+        },
+        {
+            "_id": "884299-373897981566943232",
+            "demographic": {
+                "gender": "mostly_female"
+            },
+            "interaction": {
+                "author": {
+                    "avatar": "https://si0.twimg.com/profile_images/1709567704/317774_10150795718560411_652980410_20689740_2110145982_n_normal.jpg",
+                    "id": 500101487,
+                    "language": "en",
+                    "link": "http://twitter.com/_superted",
+                    "name": "Ted Littledale",
+                    "username": "_superted"
+                },
+                "content": "Cuppa tea, xfactor and some vintage buttons 😍#saturdaynightsin http://t.co/0n8Okc8GDd",
+                "created_at": "Sat, 31 Aug 2013 20:00:00 +0000",
+                "id": "1e31277eabe6a000e07480641a4bd0fe",
+                "link": "http://twitter.com/Jadakins26/statuses/373897981566943232",
+                "schema": {
+                    "version": 3
+                },
+                "source": "Twitter for iPhone",
+                "tags": [
+                    "interaction.content:xfactor"
+                ],
+                "type": "twitter"
+            },
+            "klout": {
+                "score": 22
+            },
+            "language": {
+                "confidence": 100,
+                "tag": "en"
+            },
+            "resource_uri": "/api/v1/tweet/884299-373897981566943232/",
+            "salience": {
+                "content": {
+                    "sentiment": 0
+                }
+            },
+            "secondsync": {
+                "environment": "production",
+                "geo": {
+                    "lat": 48.800805,
+                    "lon": 2.13491
+                },
+                "geo_method": "none",
+                "hashtags": [
+                    "saturdaynightsin"
+                ],
+                "include": true,
+                "include_result_reason": {
+                    "reason": "default"
+                },
+                "last_enriched_at": "Sat, 31 Aug 2013 20:00:57 +0000",
+                "last_indexed_at": "Sat, 31 Aug 2013 20:00:57 +0000",
+                "place": {},
+                "reach": 47,
+                "received_at": "Sat, 31 Aug 2013 20:00:00 +0000",
+                "sentiment": 0.04091208072926872,
+                "sentiment_term": "neutral",
+                "source": "datasift",
+                "tag_counts": {
+                    "interaction__tags": 1
+                },
+                "transmission": {
+                    "all_cluster_tags": [],
+                    "channel": {
+                        "id": 3,
+                        "territory": {
+                            "id": 1,
+                            "name": "UK"
+                        }
+                    },
+                    "cluster_tags": [],
+                    "daypart_mediacom": "late_peak",
+                    "episode": {
+                        "cluster_tags": [],
+                        "id": 584690,
+                        "series": {
+                            "cluster_tags": [],
+                            "id": 14328
+                        }
+                    },
+                    "id": 884299,
+                    "include_in_listings": true,
+                    "timezone": {
+                        "name": "Europe/London"
+                    },
+                    "tx": "Sat, 31 Aug 2013 19:00:00 +0000"
+                }
+            },
+            "twitter": {
+                "created_at": "Sat, 31 Aug 2013 20:00:00 +0000",
+                "filter_level": "medium",
+                "hashtags": [
+                    "saturdaynightsin"
+                ],
+                "id": "373897981566943232",
+                "lang": "en",
+                "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #techbikers #bikesup",
+                "user": {
+                    "created_at": "Wed, 22 Feb 2012 20:10:23 +0000",
+                    "description": "Don't let your past dictate your future, what's done is done just live for today #NOREGRETS",
+                    "favourites_count": 68,
+                    "followers_count": 47,
+                    "friends_count": 98,
+                    "id": 500101487,
+                    "id_str": "500101487",
+                    "lang": "en",
+                    "name": "Ted Littledale",
+                    "profile_image_url": "https://si0.twimg.com/profile_images/1709567704/317774_10150795718560411_652980410_20689740_2110145982_n_normal.jpg",
+                    "screen_name": "_superted",
+                    "statuses_count": 559
+                }
+            }
+        }
+    ]
+}

@@ -19,28 +19,34 @@
 
 	<div class="row">
 		<div class="large-12 columns">
-			<h2>Techbikers 2013 Progress Report</h2>
+			<h2>Techbikers 2013</h2>
 			<hr />
 		</div>
 	</div>
 
 	<div class="row display">
 		<div class="large-12 columns">
-			<h3>The Grid</h3>
+			<p></p>
 
 			<!-- Grid Example -->
 			<div class="row">
 				<div class="large-12 columns">
 					<div id="progressBar">
-						<a href="#" class="marker"></a>
+						
+					</div>
+					<div id="labels">
+						<h3 id="paris">Paris</h3>
+						<h3 id="vernon">Vernon</h3>
+						<h3 id="newhaven">Newhaven</h3>
+						<h3 id="london">London</h3>
 					</div>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="large-12 columns">
-					<div class="panel">
-						<p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.</p>
+					<div class="panel mapPanel">
+						 <div id="map-canvas"></div>
 					</div>
 				</div>
 			</div>
@@ -50,10 +56,12 @@
 
 		
 	</div>
+	<div id="tweetDetails">
+		
+	</div>
 
-
-
-
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD9AE-7LkO04Y_kPDJYPIPpSLMUjHR1ehk&sensor=false"></script>
+<script data-main="app/config-techbikers" src="assets/js/libs/require.js"></script>
 	
 
 
