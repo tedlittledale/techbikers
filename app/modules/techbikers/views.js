@@ -32,7 +32,7 @@ function(app, Backbone, Handlebars, d3, _) {
 			this.model.set({
 				mymap : new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
 			});
-			this.model.get('tweets').on('reset', function(){
+			this.model.on('change:ready', function(){
 				view.addMarkers();
 			});
 			this.model.on('change:selectedTweet', function(){
@@ -50,12 +50,16 @@ function(app, Backbone, Handlebars, d3, _) {
 		},
 		goToMarker : function(){
 			console.log(this.model.get('selectedTweet').get('marker'));
+			var xPan = ($('body').width() / 2) - $('#tweetDetails').outerWidth() - 30;
 			this.model.get('mymap').panTo(this.model.get('selectedTweet').get('marker').getPosition());
+			console.log(xPan);
 			this.model.get('mymap').setZoom(10);
+			this.model.get('mymap').panBy(-xPan, 190);
 			this.showTweet();
 		},
 		showTweet : function(){
 			$('#tweetDetails').html(this.template(this.model.get('selectedTweet').toJSON()));
+			$('#tweetDetails').addClass('active');
 		},
 		addMarkers : function(){
 			var tweets = this.model.get('tweets'), markers = [], view = this;

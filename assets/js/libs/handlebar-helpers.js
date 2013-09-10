@@ -2,6 +2,7 @@ Handlebars.registerHelper('normaliseTwitterData', function(twitter, options) {
   var normalised = {
 	name : null,
 	handle : null,
+	avatar : null,
 	text : null,
 	created_at : null,
 	retweet : false,
@@ -14,6 +15,7 @@ Handlebars.registerHelper('normaliseTwitterData', function(twitter, options) {
 	normalised.text = twitter.text;
 	normalised.created_at = twitter.created_at;
 	normalised.followers = twitter.user.followers_count;
+	normalised.avatar = twitter.user.profile_image_url;
   }
   else{
 	normalised.retweet = true;
@@ -22,6 +24,7 @@ Handlebars.registerHelper('normaliseTwitterData', function(twitter, options) {
 	normalised.text = twitter.retweet.text;
 	normalised.created_at = twitter.retweeted	.created_at;
 	normalised.followers = twitter.retweeted.user.followers_count;
+	normalised.avatar = twitter.retweeted.user.profile_image_url;
 	normalised.retweeter = {
 		name : twitter.retweet.user.name,
 		screen_name : twitter.retweet.user.screen_name

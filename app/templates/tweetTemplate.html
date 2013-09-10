@@ -1,16 +1,22 @@
 
 <div class="mapTweet{{#if hasMedia}} hasMedia{{/if}}" id="tweet{{twitter.id}}">
+	<div class="arrow">
+		<div class="arrowInner">
+
+		</div>
+	</div>
 	<div class="row">
 		
 
-		<div class="small-1 large-1 columns">
+		<div class="small-2 large-2 columns">
 			<a href="#" id="prevTweet"><img src="assets/img/left.png"/></a>
 		</div>
-		<div class="small-10 large-10 columns">
+		<div class="small-8 large-8 columns">
 			<div class="row">
-				<div class="tweetText{{#if hasMedia}} large-3 columns{{/if}}">
+				<div class="tweetText">
 				{{#normaliseTwitterData twitter}}
 					<h4>
+						<img src="{{avatar}}">
 						{{#if name}}
 						{{name}} <a href="http://twitter.com/{{handle}}" target="_blank">@{{handle}}</a>
 						{{else}}
@@ -28,21 +34,23 @@
 					
 				</div>
 				{{#if hasMedia}}
-				<div class="large-9 columns">
+				<div class="">
 					<img src="{{mediaUrl}}" class="twitterImage">
 				</div>
 						
 				{{/if}}
 			</div>
 			
-			<div class="tweetStats">
-				<div class="stat">
-					{{niceDate interaction.created_at}} {{twentyFour interaction.created_at}}
-				</div>
+			
+			<div class="details row">
+					<p>{{niceDate interaction.created_at}} {{twentyFour interaction.created_at}}</p>
+					<p>Distance remaining : c. {{niceCount estimateHome}}KM</p>
+			</div>	
+			
 
-			</div>
+			
 		</div>
-		<div class="small-1 large-1 columns">
+		<div class="small-2 large-2 columns">
 			<a href="#" id="nextTweet"><img src="assets/img/right.png"/></a>
 		</div>
 	</div>

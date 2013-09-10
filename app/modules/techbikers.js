@@ -31,6 +31,8 @@ function(app, Backbone, Views) {
         console.log(prev, tweets.indexOf(this.get('selectedTweet'))+direction);
         console.log(tweets.at(0));
         console.log(tweets.at(1));
+        console.log(tweets.at(2));
+        console.log(tweets.length);
         if(prev){
             this.set({
                 selectedTweet : prev
@@ -45,9 +47,11 @@ function(app, Backbone, Views) {
             dataType : 'json',
             success : function(data, d){
                 model.get('tweets').reset(d.objects);
+                console.log(model.get('tweets').length);
                 model.get('alltweets').reset(d.objects);
 
                 model.get('tweets').purge();
+                console.log(model.get('tweets').length);
                 model.set('ready');
                 
 
@@ -83,7 +87,7 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 
 	},
 	getDistanceFromLatLonInKm : function(lat1,lon1,lat2,lon2) {
-		var PARIS = 341.2521718066369;
+		var PARIS = 342.2521718066369, PARISROUTE = 450;
 		function deg2rad(deg) {
 			return deg * (Math.PI/180);
 		}
@@ -100,6 +104,7 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 		var percentHome = (PARIS - d) / PARIS;
 		this.set({
 			distanceToHome : d,
+            estimateHome : PARISROUTE * (1 -percentHome),
 			percentHome : percentHome * 100
 		});
 	},
@@ -136,10 +141,12 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 	purge : function(){
 		var collection = this, counter = 0, counter2 = 0;
 		var toRemove = this.filter(function(t){
+            console.log(t.get('percentHome'));
 			return (!t.get('percentHome') || t.get('percentHome') < 0);
 		});
 		
 		_.each(toRemove, function(t){
+            console.log(t);
 			collection.remove(t);
 		});
 		collection.sortBy(function(t){
