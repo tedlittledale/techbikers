@@ -7241,68 +7241,84 @@ a.th {
   margin-left: -4px;
   opacity: 0.9;
 }
+/* line 76, ../sass/app.scss */
+#progressBar.active .marker {
+  background-color: #CCC;
+  -webkit-box-shadow: rgba(204, 204, 204, 0.4) 0px 0px 7px 3px;
+  -moz-box-shadow: rgba(204, 204, 204, 0.4) 0px 0px 7px 3px;
+  box-shadow: rgba(204, 204, 204, 0.4) 0px 0px 7px 3px;
+}
+/* line 79, ../sass/app.scss */
+#progressBar.active .marker.selected {
+  background-color: #13ecec;
+  -webkit-box-shadow: rgba(19, 236, 236, 0.4) 0px 0px 7px 3px;
+  -moz-box-shadow: rgba(19, 236, 236, 0.4) 0px 0px 7px 3px;
+  box-shadow: rgba(19, 236, 236, 0.4) 0px 0px 7px 3px;
+  position: relative;
+  z-index: 1000;
+}
 
-/* line 77, ../sass/app.scss */
+/* line 87, ../sass/app.scss */
 .mapPanel {
   border: 5px solid #000;
 }
 
-/* line 80, ../sass/app.scss */
+/* line 90, ../sass/app.scss */
 #map-canvas {
   width: 100%;
   height: 600px;
 }
 
-/* line 84, ../sass/app.scss */
+/* line 94, ../sass/app.scss */
 .row .row {
   margin-bottom: 20px;
 }
 
-/* line 87, ../sass/app.scss */
+/* line 97, ../sass/app.scss */
 #map-canvas *, #map-canvas *:before, #map-canvas *:after {
   -moz-box-sizing: content-box!important;
   -webkit-box-sizing: content-box!important;
   box-sizing: content-box!important;
 }
 
-/* line 92, ../sass/app.scss */
+/* line 102, ../sass/app.scss */
 #map-canvas img {
   max-width: none;
 }
 
-/* line 95, ../sass/app.scss */
+/* line 105, ../sass/app.scss */
 #map-canvas label {
   width: auto;
   display: inline;
 }
 
-/* line 99, ../sass/app.scss */
+/* line 109, ../sass/app.scss */
 #map-canvas .columns {
   padding: 0;
   margin: 0;
 }
-/* line 101, ../sass/app.scss */
+/* line 111, ../sass/app.scss */
 #map-canvas .columns .twitterImage {
   max-width: auto;
 }
 
-/* line 106, ../sass/app.scss */
+/* line 116, ../sass/app.scss */
 #map-canvas .row {
   clear: both;
 }
 
-/* line 109, ../sass/app.scss */
+/* line 119, ../sass/app.scss */
 #map-canvas img.twitterImage {
   width: 100%;
   float: right;
 }
 
-/* line 113, ../sass/app.scss */
+/* line 123, ../sass/app.scss */
 #labels {
   position: relative;
   height: 50px;
 }
-/* line 115, ../sass/app.scss */
+/* line 125, ../sass/app.scss */
 #labels h3 {
   border-left: 3px solid #000;
   position: absolute;
@@ -7310,23 +7326,23 @@ a.th {
   padding-left: 6px;
   font-size: 16px;
 }
-/* line 122, ../sass/app.scss */
+/* line 132, ../sass/app.scss */
 #labels #paris {
   left: 0%;
 }
-/* line 125, ../sass/app.scss */
+/* line 135, ../sass/app.scss */
 #labels #vernon {
   left: 14.548573713844034%;
 }
-/* line 128, ../sass/app.scss */
+/* line 138, ../sass/app.scss */
 #labels #dieppe {
   left: 42.72967659988212%;
 }
-/* line 131, ../sass/app.scss */
+/* line 141, ../sass/app.scss */
 #labels #newhaven {
   left: 76.00051646464561%;
 }
-/* line 134, ../sass/app.scss */
+/* line 144, ../sass/app.scss */
 #labels #london {
   left: auto;
   right: 0;
@@ -7336,7 +7352,7 @@ a.th {
   padding-right: 6px;
 }
 
-/* line 145, ../sass/app.scss */
+/* line 155, ../sass/app.scss */
 #tweetDetails {
   position: absolute;
   width: 600px;
@@ -7350,31 +7366,35 @@ a.th {
   -moz-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
   background-color: rgba(255, 255, 255, 0.8);
   border-color: rgba(0, 0, 0, 0.5);
   border-width: 3px 0px 3px 3px;
   border-style: solid;
 }
-/* line 152, ../sass/app.scss */
+/* line 163, ../sass/app.scss */
 #tweetDetails.active {
   right: 0;
 }
-/* line 159, ../sass/app.scss */
+/* line 170, ../sass/app.scss */
 #tweetDetails #prevTweet, #tweetDetails #nextTweet {
   position: relative;
   display: block;
   margin-top: 10px;
   margin: 10px auto;
 }
-/* line 165, ../sass/app.scss */
+/* line 176, ../sass/app.scss */
 #tweetDetails .large-2 {
   text-align: center;
 }
-/* line 168, ../sass/app.scss */
+/* line 179, ../sass/app.scss */
 #tweetDetails #nextTweet {
   float: right;
 }
-/* line 171, ../sass/app.scss */
+/* line 182, ../sass/app.scss */
 #tweetDetails .arrow {
   height: 17px;
   overflow: hidden;
@@ -7383,7 +7403,7 @@ a.th {
   top: -17px;
   left: 55px;
 }
-/* line 179, ../sass/app.scss */
+/* line 190, ../sass/app.scss */
 #tweetDetails .arrowInner {
   border: 1px solid rgba(0, 0, 0, 0.5);
   background-color: rgba(0, 0, 0, 0.5);
@@ -7405,7 +7425,7 @@ a.th {
   top: 6px;
   left: 4px;
 }
-/* line 192, ../sass/app.scss */
+/* line 203, ../sass/app.scss */
 #tweetDetails .arrow {
   top: 30px;
   left: -26px;
@@ -7415,12 +7435,12 @@ a.th {
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-/* line 202, ../sass/app.scss */
+/* line 213, ../sass/app.scss */
 #tweetDetails .arrowInner {
   top: -11px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-/* line 207, ../sass/app.scss */
+/* line 218, ../sass/app.scss */
 #tweetDetails .details p {
   float: left;
   margin: 0 10px 0 0;

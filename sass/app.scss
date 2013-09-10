@@ -73,6 +73,16 @@
 		margin-left: -4px;
 		opacity: 0.9;
 	}
+	&.active .marker{
+		background-color: #CCC;
+		@include box-shadow(rgba(204, 204, 204, 0.4)  0px 0px 7px 3px); 
+		&.selected{
+			background-color: #13ecec;
+			@include box-shadow(rgba(19, 236, 236, 0.4)  0px 0px 7px 3px);
+			position: relative;
+			z-index: 1000;
+		}
+	}
 }
 .mapPanel{
 	border: 5px solid #000;
@@ -149,6 +159,7 @@
 	right:-100%;
 	@include transition-property(right);
   	@include transition-duration(1s);
+  	@include transition-timing-function(linear);
 	&.active{
 		right:0;
 	}

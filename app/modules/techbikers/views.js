@@ -36,7 +36,9 @@ function(app, Backbone, Handlebars, d3, _) {
 				view.addMarkers();
 			});
 			this.model.on('change:selectedTweet', function(){
-				view.goToMarker();
+				if(this.get('selectedTweet')){
+					view.goToMarker();
+				}
 			});
 			$('#tweetDetails').on('click', '#prevTweet', function(){
 				view.model.increment(1);
@@ -46,20 +48,31 @@ function(app, Backbone, Handlebars, d3, _) {
 				view.model.increment(-1);
 				return false;
 			});
+			google.maps.event.addListener(this.model.get('mymap'), 'center_changed', function() {
+				view.hideTweet();
+			});
+			google.maps.event.addListener(this.model.get('mymap'), 'zoom_changed', function() {
+				view.hideTweet();
+			});
 			this.template = app.fetchTemplate('app/templates/tweetTemplate', 'tweetTemplate.html');
 		},
 		goToMarker : function(){
-			console.log(this.model.get('selectedTweet').get('marker'));
-			var xPan = ($('body').width() / 2) - $('#tweetDetails').outerWidth() - 30;
-			this.model.get('mymap').panTo(this.model.get('selectedTweet').get('marker').getPosition());
+			var xPan = ($('body').width() / 2) - $('#tweetDetails').outerWidth() - 30,
+				map = this.model.get('mymap');
+			map.panTo(this.model.get('selectedTweet').get('marker').getPosition());
 			console.log(xPan);
-			this.model.get('mymap').setZoom(10);
-			this.model.get('mymap').panBy(-xPan, 190);
+			if(map.getZoom() < 10){
+				map.setZoom(10);
+			}
+			map.panBy(-xPan, 190);
 			this.showTweet();
 		},
 		showTweet : function(){
 			$('#tweetDetails').html(this.template(this.model.get('selectedTweet').toJSON()));
 			$('#tweetDetails').addClass('active');
+		},
+		hideTweet : function(){
+			$('#tweetDetails').removeClass('active');
 		},
 		addMarkers : function(){
 			var tweets = this.model.get('tweets'), markers = [], view = this;
@@ -76,6 +89,9 @@ function(app, Backbone, Handlebars, d3, _) {
 					})
 				});
 				google.maps.event.addListener(t.get('marker'), 'click', function() {
+					view.model.set({
+						selectedTweet : null
+					});
 					view.model.set({
 						selectedTweet : this.model
 					});
@@ -102,6 +118,18 @@ function(app, Backbone, Handlebars, d3, _) {
 
 			this.model.bind('change:ready reset:ready', function(){
 				view.render();
+			});
+			this.model.on('change:selectedTweet', function(){
+				if(this.get('selectedTweet')){
+					view.el.addClass('active');
+					view.el.find('a').removeClass('selected');
+					var it = view.el.find('a[data-bbid="'+this.get('selectedTweet').cid+'"]');
+					it.addClass('selected');
+				}
+				else{
+					view.el.find('a').removeClass('selected');
+					view.el.removeClass('active');
+				}
 			});
 			this.el.on('click', 'a', function(e){
 				console.log(view.model.get('tweets').get($(this).data('bbid')), $(this).data('bbid'));
