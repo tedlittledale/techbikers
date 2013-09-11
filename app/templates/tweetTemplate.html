@@ -9,23 +9,25 @@
 		
 
 		<div class="small-2 large-2 columns">
-			<a href="#" id="prevTweet"><img src="assets/img/left.png"/></a>
+			<a href="#" id="prevTweet" class="{{#if isFirst}}disabled{{/if}}"><img src="assets/img/left.png"/></a>
 		</div>
-		<div class="small-8 large-8 columns">
+		<div class="small-10 large-8 columns">
 			<div class="row">
 				<div class="tweetText">
 				{{#normaliseTwitterData twitter}}
-					<h4>
+					<div class="profile">
 						<img src="{{avatar}}">
 						{{#if name}}
-						{{name}} <a href="http://twitter.com/{{handle}}" target="_blank">@{{handle}}</a>
+						<h4>{{name}} <br/><a href="http://twitter.com/{{handle}}" target="_blank">@{{handle}}</a></h4>
 						{{else}}
 
-						<a href="http://twitter.com/{{handle}}" target="_blank" >@{{handle}}</a>
+						<h4><a href="http://twitter.com/{{handle}}" target="_blank" >@{{handle}}</a></h4>
 						{{/if}}
-					</h4>
+					</div>
+						
+					
 
-					<p>{{{text}}}</p>
+					<p class="tweetText">{{{textToLinks text}}}</p>
 
 					{{#if retweet}}
 					<p class="retweetedBy">Reweeted by {{retweeter.name}}</p> 
@@ -42,16 +44,18 @@
 			</div>
 			
 			
-			<div class="details row">
-					<p>{{niceDate interaction.created_at}} {{twentyFour interaction.created_at}}</p>
-					<p>Distance remaining : c. {{niceCount estimateHome}}KM</p>
-			</div>	
+			
 			
 
 			
 		</div>
 		<div class="small-2 large-2 columns">
-			<a href="#" id="nextTweet"><img src="assets/img/right.png"/></a>
+			<a href="#" id="nextTweet" class="{{#if isLast}}disabled{{/if}}"><img src="assets/img/right.png"/></a>
+			<div class="details row">
+					<p>{{niceDateShort interaction.created_at}}</p>
+					<p>{{twentyFour interaction.created_at}}</p>
+					<p><span data-tooltip class="has-tip" title="Distance to shoreditch (estimated cycle distance)!">DTS</span> : {{niceCount estimateHome}}KM</p>
+			</div>	
 		</div>
 	</div>
 

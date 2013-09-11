@@ -9,7 +9,10 @@ define([
   "modernizr",
   "jquery",
   "helpers",
-  "swipe"
+  "swipe",
+  "foundation",
+  "joyride",
+  "tooltips"
 ],
 
 function(app, Backbone, Handlebars, d3, _) {
@@ -64,7 +67,7 @@ function(app, Backbone, Handlebars, d3, _) {
 			if(map.getZoom() < 10){
 				map.setZoom(10);
 			}
-			map.panBy(-xPan, 190);
+			map.panBy(-xPan, 153);
 			this.showTweet();
 		},
 		showTweet : function(){
@@ -143,6 +146,18 @@ function(app, Backbone, Handlebars, d3, _) {
 		render : function(){
 			console.log('tes');
 			this.el.html(this.template({ tweets : this.model.get('tweets').toJSON()}));
+		}
+	});
+
+	Views.Tour = Backbone.View.extend({
+		initialize : function(){
+			$.ready(function(){
+				$(document)
+				.foundation()
+				.foundation('joyride', 'start');
+			});
+			
+
 		}
 	});
 	

@@ -51,6 +51,29 @@ Handlebars.registerHelper('normaliseTwitterData', function(twitter, options) {
 	}
   return options.fn(normalised);
 });
+Handlebars.registerHelper('textToLinks', function(text, options) {
+	var returnText;
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    returnText = text.replace(exp,"<a href='$1' target='_blank'>$1</a>");
+    returnText = returnText.replace(/[@]+[A-Za-z0-9-_]+/g, function(u) {
+		var username = u.replace("@","")
+		var link = document.createElement("a");
+		link.setAttribute("href", "http://twitter.com/"+username);
+		link.appendChild(document.createTextNode('@'+username));
+		link.setAttribute("target", "_blank");
+		return link.outerHTML;
+	});
+	returnText = returnText.replace(/[#]+[A-Za-z0-9-_]+/g, function(t) {
+		var tag = t.replace("#","%23");
+		var link = document.createElement("a");
+		link.setAttribute("href", "http://twitter.com/search?q="+tag);
+		link.appendChild(document.createTextNode(t));
+		link.setAttribute("target", "_blank");
+		return link.outerHTML;
+	});
+	returnText = returnText.replace(/RT /, '');
+	return returnText;
+});
 Handlebars.registerHelper('verified', function(twitter, options) {
 	if(twitter.user && twitter.user.verified === true){
 		return 'verified';
@@ -233,8 +256,16 @@ Handlebars.registerHelper("niceDate", function(timeString, fn) {
 });
 Handlebars.registerHelper("niceDateShort", function(timeString, fn) {
 	var thisDate = new Date(Date.parse(timeString));
-	thisDate = thisDate.toDateString().split(' ');
-	return thisDate[0] + " " + thisDate[2] + " " + thisDate[1] + " " + thisDate[3];
+	function twosf(pos){
+		var position = pos+"";
+	if(position.length === 1){
+		return "0"+position;
+	}
+	else{
+		return position;
+	}
+	}
+	return twosf(thisDate.getDate()) + "/" + twosf(thisDate.getMonth()+1) + "/" + thisDate.getYear()%100;
 
 });
 Handlebars.registerHelper("niceDateSafe", function(timeString, fn) {

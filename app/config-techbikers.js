@@ -16,7 +16,9 @@ require.config({
     backbone: "../assets/js/libs/backbone-min",
     swipe: "../assets/js/libs/plugins/swipe",
     d3: "../assets/js/libs/d3",
-    foundation : "../javascripts/foundation/foundation"
+    foundation : "../javascripts/foundation/foundation",
+    joyride : "../javascripts/foundation/foundation.joyride",
+    tooltips : "../javascripts/foundation/foundation.tooltips"
   },
 underscorerlArgs: "bust=v"+Math.round(Math.random()*1000000),
   shim: {
@@ -81,7 +83,8 @@ function(app, ignore, Backbone, _, Techbikers) {
 			}),
 			progressBar : new Techbikers.Views.ProgressBar({
 				model : techbikers.models.controller
-			})
+			}),
+      tour : new Techbikers.Views.Tour()
 		}
 	});
 

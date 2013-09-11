@@ -74,7 +74,48 @@ Techbikers.Models.Map = Backbone.Model.extend({
 		live : false,
 		last_tpm : 0,
 		last_count : 0,
-		hasFilters : false
+		hasFilters : false,
+        styles : [
+
+        {
+            featureType: "poi",
+            stylers: [
+              { visibility: "off" }
+            ]
+          },
+          {
+            featureType: "road.highway",
+            stylers: [
+            { hue: "#5ba3b6" },
+            { saturation: 1   },
+            
+            {lightness : 25}
+            ]
+          },
+        {
+            featureType: "road.local",
+            stylers: [
+            { hue: "#11ee69" },
+            { saturation: 100 },
+            {lightness : -25}
+            ]
+        },
+        {
+            featureType: "road.arterial",
+            stylers: [
+            { hue: "#11ee69" },
+            { saturation: 100 },
+            {lightness : -25}
+            ]
+        },
+        {
+                    featureType: "water",
+                    stylers: [
+                    { hue: "#5ba3b6" },
+                    { saturation: -40 }
+                    ]
+                }
+        ]
 	},
 	initialize: function(){
 		var view = this;
@@ -84,7 +125,8 @@ Techbikers.Models.Map = Backbone.Model.extend({
 });
 Techbikers.Models.Tweet = Backbone.Model.extend({
 	defaults: {
-
+        isFirst : false,
+        isLast : false
 	},
 	getDistanceFromLatLonInKm : function(lat1,lon1,lat2,lon2) {
 		var PARIS = 342.2521718066369, PARISROUTE = 450;
@@ -151,6 +193,12 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 		});
 		collection.sortBy(function(t){
             console.log(t);
+        });
+        collection.at(0).set({
+            isLast : true
+        });
+        collection.at(collection.length-1).set({
+            isFirst : true
         });
 	}
   });

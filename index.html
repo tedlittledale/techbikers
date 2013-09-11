@@ -17,10 +17,25 @@
 </head>
 <body>
 
+		<div class="contain-to-grid">
+	<nav class="top-bar">
+			<ul class="title-area">
+			<li class="name"><h1><a href="#">Techbikers 2013 Tweet Map</a></h1></li>
+
+		</ul>
+		<section class="top-bar-section">
+		<ul class="right">
+			<li><a href="http://techbikers.com" target="_blank">About Techbikers</a></li>
+			<li><a href="http://www.roomtoread.org/" target="_blank">Room To Read</a></li>
+		</ul>
+		</section>
+		
+		
+	</nav>
+	</div>
 	<div class="row">
 		<div class="large-12 columns">
-			<h2>Techbikers 2013</h2>
-			<hr />
+			<p>70 Techbikers are cycling from Paris to London from 27th-29th September 2013. Here you can track their progress throughout the weekend and see what they are tweeting.</p>
 		</div>
 	</div>
 
@@ -46,7 +61,7 @@
 			
 			<div class="row">
 				<div class="large-12 columns">
-					<div class="mapPanel">
+					<div class="mapPanel" id="map">
 						 <div id="map-canvas"></div>
 					</div>
 				</div>
@@ -60,7 +75,15 @@
 	<div id="tweetDetails">
 		
 	</div>
-
+<!-- At the bottom of your page but inside of the body tag -->
+<ol class="joyride-list" data-joyride id="tour">
+  <li data-id="progressBar" data-text="Next">
+    <p>Hello and welcome to the Joyride documentation page.</p>
+  </li>
+  <li data-id="progressBar" data-text="Next">
+    <p>this is a map.</p>
+  </li>
+</ol>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD9AE-7LkO04Y_kPDJYPIPpSLMUjHR1ehk&sensor=false"></script>
 <script data-main="app/config-techbikers" src="assets/js/libs/require.js"></script>
 	

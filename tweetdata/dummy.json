@@ -841,7 +841,7 @@
                     }
                 ],
                 "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #techbikers #bikesup",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor sed do sit amet adipsicing !!!!!!!!!!!! #techbikers #bikesup",
                 "user": {
                     "created_at": "Wed, 22 Feb 2012 20:10:23 +0000",
                     "description": "Don't let your past dictate your future, what's done is done just live for today #NOREGRETS",
@@ -1111,7 +1111,7 @@
                     }
                 ],
                 "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #techbikers #bikesup",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor sed do sit amet adipsicing !!!!!!!!!!!! #techbikers #bikesup",
                 "user": {
                     "created_at": "Wed, 22 Feb 2012 20:10:23 +0000",
                     "description": "Don't let your past dictate your future, what's done is done just live for today #NOREGRETS",
@@ -1228,42 +1228,8 @@
                 ],
                 "id": "373897981566943232",
                 "lang": "en",
-                "media": [
-                    {
-                        "display_url": "pic.twitter.com/0n8Okc8GDd",
-                        "expanded_url": "http://twitter.com/Jadakins26/status/373897981566943232/photo/1",
-                        "id": 373897981407555600,
-                        "id_str": "373897981407555584",
-                        "media_url": "https://sphotos-b.xx.fbcdn.net/hphotos-prn1/1186894_528402913898688_258837160_n.jpg",
-                        "media_url_https": "https://sphotos-b.xx.fbcdn.net/hphotos-prn1/1186894_528402913898688_258837160_n.jpg",
-                        "sizes": {
-                            "large": {
-                                "h": 1024,
-                                "resize": "fit",
-                                "w": 768
-                            },
-                            "medium": {
-                                "h": 800,
-                                "resize": "fit",
-                                "w": 600
-                            },
-                            "small": {
-                                "h": 453,
-                                "resize": "fit",
-                                "w": 340
-                            },
-                            "thumb": {
-                                "h": 150,
-                                "resize": "crop",
-                                "w": 150
-                            }
-                        },
-                        "type": "photo",
-                        "url": "http://t.co/0n8Okc8GDd"
-                    }
-                ],
                 "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #techbikers #bikesup",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor sed do sit amet adipsicing !!!!!!!!!!!! #techbikers #bikesup",
                 "user": {
                     "created_at": "Wed, 22 Feb 2012 20:10:23 +0000",
                     "description": "Don't let your past dictate your future, what's done is done just live for today #NOREGRETS",
@@ -1532,40 +1498,6 @@
                 ],
                 "id": "373897981566943232",
                 "lang": "en",
-                "media": [
-                    {
-                        "display_url": "pic.twitter.com/0n8Okc8GDd",
-                        "expanded_url": "http://twitter.com/Jadakins26/status/373897981566943232/photo/1",
-                        "id": 373897981407555600,
-                        "id_str": "373897981407555584",
-                        "media_url": "https://sphotos-b.xx.fbcdn.net/hphotos-prn1/1186894_528402913898688_258837160_n.jpg",
-                        "media_url_https": "https://sphotos-b.xx.fbcdn.net/hphotos-prn1/1186894_528402913898688_258837160_n.jpg",
-                        "sizes": {
-                            "large": {
-                                "h": 1024,
-                                "resize": "fit",
-                                "w": 768
-                            },
-                            "medium": {
-                                "h": 800,
-                                "resize": "fit",
-                                "w": 600
-                            },
-                            "small": {
-                                "h": 453,
-                                "resize": "fit",
-                                "w": 340
-                            },
-                            "thumb": {
-                                "h": 150,
-                                "resize": "crop",
-                                "w": 150
-                            }
-                        },
-                        "type": "photo",
-                        "url": "http://t.co/0n8Okc8GDd"
-                    }
-                ],
                 "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
                 "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #techbikers #bikesup",
                 "user": {

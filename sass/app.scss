@@ -3,7 +3,8 @@
 
 // Comment out this import if you don't want to use normalize
 @import "normalize";
-
+$topbar-bg: #25a1da;
+$tooltip-close-font-size: 12px;
 // Comment out this import if you are customizing you imports below
 @import "foundation";
 
@@ -56,6 +57,8 @@
 @import "compass/css3";
 
 
+
+
 #progressBar{
 	height: 4px;
 	background-color: #000;
@@ -63,24 +66,28 @@
 	.marker{
 		height: 6px;
 		@include radius(6px);
-		background-color: #13ecec;
+		background-color: #25a1da;
 		left:0%;
 		display: block;
 		width: 6px;
-		top:-2px;
+		top:-1px;
 		position: absolute;
-		@include box-shadow(rgba(19, 236, 236, 0.4)  0px 0px 7px 3px); 
-		margin-left: -4px;
+		@include box-shadow(rgba(36, 161, 218, 0.4)  0px 0px 7px 3px); 
+		margin-left: -2px;
 		opacity: 0.9;
 	}
 	&.active .marker{
 		background-color: #CCC;
 		@include box-shadow(rgba(204, 204, 204, 0.4)  0px 0px 7px 3px); 
 		&.selected{
-			background-color: #13ecec;
-			@include box-shadow(rgba(19, 236, 236, 0.4)  0px 0px 7px 3px);
+			background-color: #25a1d1;
+			@include box-shadow(rgba(36, 161, 218, 0.4)  0px 0px 7px 3px);
 			position: relative;
 			z-index: 1000;
+			height: 10px;
+			width: 10px;
+			top:-3px;
+			margin-left: -4px;
 		}
 	}
 }
@@ -89,7 +96,7 @@
 }
 #map-canvas{
 	width: 100%;
-	height: 600px;
+	height: 500px;
 }
 .row .row{
 	margin-bottom: 20px;
@@ -155,7 +162,7 @@
 #tweetDetails{
 	position: absolute;
 	width: 600px;
-	top: 250px;
+	top: 280px;
 	right:-100%;
 	@include transition-property(right);
   	@include transition-duration(1s);
@@ -164,20 +171,19 @@
 		right:0;
 	}
 	background-color: rgba(255,255,255,0.8);
-	border-color: rgba(0,0,0,0.5);
+	border-color: #25a1da;
 	border-width: 3px 0px 3px 3px;
 	border-style: solid;
 	#prevTweet, #nextTweet{
 		position: relative;
 		display: block;
-		margin-top: 10px;
-		margin: 10px auto;
+		margin: 20px auto;
+		&.disabled{
+			opacity: 0.5;
+		}
 	}
 	.large-2{
 		text-align: center;
-	}
-	#nextTweet{
-		float: right;
 	}
 	.arrow{
 		height: 17px;
@@ -188,13 +194,13 @@
 		left:55px;
 	}
 	.arrowInner{
-		border: 1px solid rgba(0,0,0,0.5);
-		background-color: rgba(0,0,0,0.5);
+		border: 1px solid #25a1da;
+		background-color: #25a1da;
 		@include border-radius(2px);
 		width:20px;
 		height: 20px;
 		@include rotate(-45deg);
-		background-color: rgba(0,0,0,0.5);
+		background-color: #25a1da;
 		display: block;
 		position: absolute;
 		top: 6px;
@@ -212,12 +218,30 @@
 	}
 	.arrowInner{
 		top:-11px;
-		background-color: rgba(0,0,0,0.5);
+		background-color: #25a1da;
 	}
-	.details{
-		p{
+
+	.profile{
+		margin: 10px 0 0;
+		overflow: hidden;
+		img{
+			display: block;
 			float: left;
-			margin: 0 10px 0 0;
+
 		}
+		h4{
+				float: left;
+				font-size: 16px;
+				padding: 0px 0 0px 10px;
+			}
+	}
+	.tweetText{
+		font-size: 16px;
+		line-height: 22px;
+	}
+	.details p{
+		text-align: right;
+		font-size: 12px;
+		margin: 0 20px 0 0;
 	}
 }
