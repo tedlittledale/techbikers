@@ -91,6 +91,7 @@ $tooltip-close-font-size: 12px;
 		}
 	}
 }
+
 .mapPanel{
 	border: 5px solid #000;
 }
@@ -175,7 +176,6 @@ $tooltip-close-font-size: 12px;
 	border-width: 3px 0px 3px 3px;
 	border-style: solid;
 	#prevTweet, #nextTweet{
-		position: relative;
 		display: block;
 		margin: 20px auto;
 		&.disabled{
@@ -184,6 +184,7 @@ $tooltip-close-font-size: 12px;
 	}
 	.large-2{
 		text-align: center;
+		position: static;
 	}
 	.arrow{
 		height: 17px;
@@ -239,9 +240,81 @@ $tooltip-close-font-size: 12px;
 		font-size: 16px;
 		line-height: 22px;
 	}
+	.details{
+		position: absolute;
+		bottom:14px;
+		right:15px;
+		margin-bottom: 0;
+	}
 	.details p{
 		text-align: right;
 		font-size: 12px;
-		margin: 0 20px 0 0;
+		margin: 0 10px 0 0;
+	}
+}
+.top-bar{
+	position: relative;
+	.line{
+		width: 100%;
+		position: absolute;
+		top: 33px;
+		z-index: 1000;
+		.inner{
+
+		border-bottom: 1px solid #FFF;
+		margin: 0 15px;
+		}
+	}
+	.hLine{
+		width: 1px;
+		height: 80%;
+		right:-5%;
+		left:auto;
+		border-bottom: 0;
+		border-right: 1px solid #fff;
+	}
+}
+.top-bar li > a{
+	border-left: 1px solid #fff;
+}
+
+@media only screen and (max-width: 768px) {
+	#progressArea{
+		.inner{
+			@include simple-transform(1, 90deg, 0, 00px, 0, 0, 0, 0);
+			width: 1000px;
+		}
+		height: 1000px;
+		h3{
+			height: 100px;
+			top:-104px;
+			span{
+				display: block;
+				@include simple-transform(1, -90deg, -90px, -30px, 0, 0, 0, 0);
+			}
+		}
+	}
+	#tweetDetails{
+		position: static;
+		width: auto;
+	}
+	#map-canvas{
+		width: 100%;
+		height: 150px;
+	}
+	#mobileDetails{
+		position: absolute;
+		width: 90%;
+		left:10%;
+		.tweetText{
+			font-size: 12px;
+			line-height: 14px;
+		}
+	}
+	.arrow{
+		display: none;
+	}
+	.small-0{
+		display: none;
 	}
 }

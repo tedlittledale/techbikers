@@ -26,7 +26,7 @@ var configIndex = {
     handlebars: "../assets/js/libs/handlebars",
     helpers: "../assets/js/libs/handlebar-helpers",
     underscore: "../assets/js/libs/underscore",
-    modernizr: "../assets/js/libs/modernizr-2.5.3.min",
+    modernizr: "../javascripts/vendor/custom.modernizr",
     backbone: "../assets/js/libs/backbone-min",
     swipe: "../assets/js/libs/plugins/swipe",
     d3: "../assets/js/libs/d3",
@@ -143,6 +143,7 @@ task('handlebars', function (params) {
 function copy(srcPath, epgdistPath) {
     var out =  fs.readFileSync(srcPath, FILE_ENCODING);
     out = out.replace(/http\:\/\/fast/g, 'https://fast');
+    out = out.replace(/http\:\/\/map/g, 'https://map');
     out = out.replace(/app\.css/g, 'app.css?'+Math.round(Math.random() * 1000000));
     out = out.replace(/config-techbikers/g, 'config-techbikers-'+time);
     fs.writeFileSync(epgdistPath, out, FILE_ENCODING);

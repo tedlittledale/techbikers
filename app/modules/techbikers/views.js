@@ -11,7 +11,6 @@ define([
   "helpers",
   "swipe",
   "foundation",
-  "joyride",
   "tooltips"
 ],
 
@@ -27,10 +26,14 @@ function(app, Backbone, Handlebars, d3, _) {
 		initialize: function(){
 			var view = this;
 			_.bindAll(this, 'addMarkers');
+			if(Modernizr.mq('only all and (max-width: 768px)')){
+				$("#map").appendTo('#mobileMap');
+			}
 			var mapOptions = {
 				center: new google.maps.LatLng(50.17827395732207, 0.6850681250000523),
 				zoom: 7,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				disableDefaultUI: Modernizr.mq('only all and (max-width: 768px)') 
 			};
 			this.model.set({
 				mymap : new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
@@ -51,24 +54,35 @@ function(app, Backbone, Handlebars, d3, _) {
 				view.model.increment(-1);
 				return false;
 			});
-			google.maps.event.addListener(this.model.get('mymap'), 'center_changed', function() {
+			google.maps.event.addListener(this.model.get('mymap'), 'dragstart', function() {
 				view.hideTweet();
+				view.model.set({
+					selectedTweet:null
+				});
 			});
-			google.maps.event.addListener(this.model.get('mymap'), 'zoom_changed', function() {
-				view.hideTweet();
+			$('body').on('click', function(e){
+				// view.hideTweet();
+				// view.model.set({
+				// 	selectedTweet : null
+				// });
 			});
 			this.template = app.fetchTemplate('app/templates/tweetTemplate', 'tweetTemplate.html');
 		},
 		goToMarker : function(){
 			var xPan = ($('body').width() / 2) - $('#tweetDetails').outerWidth() - 30,
 				map = this.model.get('mymap');
-			map.panTo(this.model.get('selectedTweet').get('marker').getPosition());
 			console.log(xPan);
 			if(map.getZoom() < 10){
 				map.setZoom(10);
 			}
-			map.panBy(-xPan, 153);
+			map.panTo(this.model.get('selectedTweet').get('marker').getPosition());
+			if(!Modernizr.mq('only all and (max-width: 768px)')){
+				map.panBy(-xPan, 153);
+			}
 			this.showTweet();
+			// $('body,html').animate({
+			//   scrollTop: 150
+			// }, 800);
 		},
 		showTweet : function(){
 			$('#tweetDetails').html(this.template(this.model.get('selectedTweet').toJSON()));
@@ -80,7 +94,6 @@ function(app, Backbone, Handlebars, d3, _) {
 		addMarkers : function(){
 			var tweets = this.model.get('tweets'), markers = [], view = this;
 			tweets.each(function(t){
-				console.log(t);
 				t.set({
 					marker : new google.maps.Marker({
 						position: new google.maps.LatLng(t.get('secondsync').geo.lat, t.get('secondsync').geo.lon),
@@ -108,7 +121,7 @@ function(app, Backbone, Handlebars, d3, _) {
 	});
 	Views.ProgressBar = Backbone.View.extend({
 		// attaches /bin/bash: this.el: command not found to an existing element.
-		el: $('#progressBar'),
+		el: $('#progressArea'),
 
 		events: {
 			//'click .tag ': 'edit'
@@ -125,17 +138,22 @@ function(app, Backbone, Handlebars, d3, _) {
 			this.model.on('change:selectedTweet', function(){
 				if(this.get('selectedTweet')){
 					view.el.addClass('active');
+					view.el.find('#progressBar').addClass('active');
+
 					view.el.find('a').removeClass('selected');
 					var it = view.el.find('a[data-bbid="'+this.get('selectedTweet').cid+'"]');
 					it.addClass('selected');
+					if(Modernizr.mq('only all and (max-width: 768px)')){
+						view.moveDetails(it);
+					}
 				}
 				else{
 					view.el.find('a').removeClass('selected');
 					view.el.removeClass('active');
+					view.el.find('#progressBar').removeClass('active');
 				}
 			});
 			this.el.on('click', 'a', function(e){
-				console.log(view.model.get('tweets').get($(this).data('bbid')), $(this).data('bbid'));
 				view.model.set({
 					selectedTweet : view.model.get('tweets').get($(this).data('bbid'))
 				});
@@ -143,19 +161,23 @@ function(app, Backbone, Handlebars, d3, _) {
 
 			});
 		},
+		moveDetails : function(marker){
+			var top = marker.offset().top;
+			console.log(top);
+			$('#mobileDetails').css({
+				top : top + 20+'px'
+			});
+			$('body,html').animate({
+			scrollTop: top - 10
+			}, 800);
+		},
 		render : function(){
-			console.log('tes');
-			this.el.html(this.template({ tweets : this.model.get('tweets').toJSON()}));
+			this.el.find('#progressBar').html(this.template({ tweets : this.model.get('tweets').toJSON()}));
 		}
 	});
 
 	Views.Tour = Backbone.View.extend({
 		initialize : function(){
-			$.ready(function(){
-				$(document)
-				.foundation()
-				.foundation('joyride', 'start');
-			});
 			
 
 		}

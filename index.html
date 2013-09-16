@@ -18,7 +18,8 @@
 <body>
 
 		<div class="contain-to-grid">
-	<nav class="top-bar">
+		<nav class="top-bar">
+		<div class="line"><div class="inner"></div></div>
 			<ul class="title-area">
 			<li class="name"><h1><a href="#">Techbikers 2013 Tweet Map</a></h1></li>
 
@@ -35,7 +36,9 @@
 	</div>
 	<div class="row">
 		<div class="large-12 columns">
-			<p>70 Techbikers are cycling from Paris to London from 27th-29th September 2013. Here you can track their progress throughout the weekend and see what they are tweeting.</p>
+			<p>On September 27th, 60+ techies will ride from Paris to London.
+
+Over the 3 day, 200 mile ride they will raise $75000+ for Room to Read. Here you can track their progress throughout the weekend and see what they are tweeting.</p>
 		</div>
 	</div>
 
@@ -46,16 +49,22 @@
 			<!-- Grid Example -->
 			<div class="row">
 				<div class="large-12 columns">
-					<div id="progressBar">
+					<div id="progressArea">
+						<div class="inner">
+							<div id="progressBar">
+						
+							</div>
+							<div id="labels">
+								<h3 id="paris"><span>Paris</span></h3>
+								<h3 id="vernon"><span>Vernon</span></h3>
+								<h3 id="dieppe"><span>Dieppe</span></h3>
+								<h3 id="newhaven"><span>Newhaven</span></h3>
+								<h3 id="london"><span>London</span></h3>
+							</div>
+						</div>
 						
 					</div>
-					<div id="labels">
-						<h3 id="paris">Paris</h3>
-						<h3 id="vernon">Vernon</h3>
-						<h3 id="dieppe">Dieppe</h3>
-						<h3 id="newhaven">Newhaven</h3>
-						<h3 id="london">London</h3>
-					</div>
+					
 				</div>
 			</div>
 			
@@ -72,9 +81,15 @@
 
 		
 	</div>
-	<div id="tweetDetails">
+	<div id="mobileDetails">
+		<div id="mobileMap">
 		
-	</div>
+		</div>
+		<div id="tweetDetails">
+			
+		</div>
+	</div><!-- #mobileDetails -->
+	
 <!-- At the bottom of your page but inside of the body tag -->
 <ol class="joyride-list" data-joyride id="tour">
   <li data-id="progressBar" data-text="Next">

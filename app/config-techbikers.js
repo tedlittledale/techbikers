@@ -12,12 +12,11 @@ require.config({
     handlebars: "../assets/js/libs/handlebars",
     helpers: "../assets/js/libs/handlebar-helpers",
     underscore: "../assets/js/libs/underscore",
-    modernizr: "../assets/js/libs/modernizr-2.5.3.min",
+    modernizr: "../javascripts/vendor/custom.modernizr",
     backbone: "../assets/js/libs/backbone-min",
     swipe: "../assets/js/libs/plugins/swipe",
     d3: "../assets/js/libs/d3",
     foundation : "../javascripts/foundation/foundation",
-    joyride : "../javascripts/foundation/foundation.joyride",
     tooltips : "../javascripts/foundation/foundation.tooltips"
   },
 underscorerlArgs: "bust=v"+Math.round(Math.random()*1000000),
