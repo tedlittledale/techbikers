@@ -11,12 +11,80 @@ function(app, Backbone, Views) {
   var Techbikers = app.module();
   Techbikers.Models = {};
   Techbikers.Collections = {};
+  Techbikers.RIDESTART = 1379696400000;
+  Techbikers.RIDEEND = 1379762059278;
+  Techbikers.BIKERS = ["abby_super",
+"abechoi",
+"eyesnight",
+"adi_benari",
+"alexwoodcreates",
+"alexblogg",
+"alexhoye",
+"andrewmcdonough",
+"andyy",
+"tonydenyer",
+"axelkatalan",
+"barryfurby",
+"inthcompanyof",
+"bindik",
+"CassieRobinson",
+"clairecockerton",
+"cbm",
+"websummithq",
+"davidalyoung",
+"buro9",
+"hailpixel",
+"esparraga",
+"diane_perlman",
+"_superted",
+"BuzzBrooke",
+"ediggs",
+"hannahblake123",
+"H4ryB",
+"humzamb",
+"tuckerian",
+"IdoHo30",
+"jasontavaria",
+"jasonball",
+"flexewebs",
+"jpvantie",
+"johnehenderson",
+"johndavis76",
+"katejacksonk",
+"koomerang",
+"laura_scott",
+"mario",
+"markofrespect",
+"martinmignot",
+"Mmetternich",
+"maya_ross",
+"michaelwillmott",
+"mgrafham",
+"mikeywaites",
+"morgansowden",
+"nikhilshah",
+"pumka",
+"bieberstein",
+"rhys_isterix",
+"richmartell",
+"ringomoss",
+"sam_strong",
+"sebzz",
+"scmurphy",
+"tomalterman",
+"limxinsiang",
+"udishitrit",
+"willdogg",
+"wpdunk",
+"yasin_mahmood"
+];
+
   Techbikers.Models.Controller = Backbone.Model.extend({
     defaults : {
         ready : false,
         selectedTweet : null
     },
-    url : '/tweetdata/dummy.json',
+    url : '/tweetdata/api.json',
     parse :  function(data){
         return data.meta;
     },
@@ -25,14 +93,7 @@ function(app, Backbone, Views) {
     },
     increment : function(direction){
         var tweets = this.get('tweets');
-        console.log(this);
-        console.log(tweets.indexOf(this.get('selectedTweet')));
         var prev = tweets.at(tweets.indexOf(this.get('selectedTweet'))+direction);
-        console.log(prev, tweets.indexOf(this.get('selectedTweet'))+direction);
-        console.log(tweets.at(0));
-        console.log(tweets.at(1));
-        console.log(tweets.at(2));
-        console.log(tweets.length);
         if(prev){
             this.set({
                 selectedTweet : prev
@@ -46,12 +107,11 @@ function(app, Backbone, Views) {
         this.fetch({
             dataType : 'json',
             success : function(data, d){
-                model.get('tweets').reset(d.objects);
-                console.log(model.get('tweets').length);
-                model.get('alltweets').reset(d.objects);
+                model.get('tweets').reset(d.statuses);
+                model.get('alltweets').reset(d.statuses);
 
                 model.get('tweets').purge();
-                console.log(model.get('tweets').length);
+                model.set('')
                 model.set('ready');
                 
 
@@ -151,9 +211,8 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 		});
 	},
     checkForMedia : function(){
-        var TwitterData = this.get('twitter'),
+        var TwitterData = this.toJSON();
             root = TwitterData.retweet ? TwitterData.retweet : TwitterData;
-            
         if(root.media && root.media[0].type === "photo"){
             this.set({
                 hasMedia : true,
@@ -162,13 +221,42 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
         }
        
     },
+    checkForMediaEntities : function(){
+        var TwitterData = this.toJSON();
+        if(TwitterData.entities.media){
+            this.set({
+                hasMedia : true,
+                mediaUrl : TwitterData.entities.media[0].media_url_https
+            });
+        }
+    },
+    checkIsBiker : function(){
+        var thisHandle = this.get('user').screen_name;
+        var biker = _.find(Techbikers.BIKERS, function(handle){
+            return thisHandle.toLowerCase() === handle.toLowerCase();
+        });
+        if(biker){
+            console.log(new Date(this.get('timestamp')) , new Date(Techbikers.RIDESTART));
+            this.set({
+                isBiker : true,
+                isOnRide : (this.get('timestamp') > Techbikers.RIDESTART) && (this.get('timestamp') < Techbikers.RIDEEND)
+            });
+        }
+        else{
+            console.log('notbiker');
+        }
+    },
 	initialize: function(){
 		var view = this;
 		_.bindAll(this);
-		if(this.get('secondsync').geo.lat){
-			this.getDistanceFromLatLonInKm(51.522696, -0.085498, this.get('secondsync').geo.lat, this.get('secondsync').geo.lon);
+		if(this.get('geo')){
+            this.set({
+                timestamp : (new Date(this.get('created_at'))).getTime()
+            });
+			this.getDistanceFromLatLonInKm(51.522696, -0.085498, this.get('geo').coordinates[0], this.get('geo').coordinates[1]);
+            this.checkForMediaEntities();
+            this.checkIsBiker();
 		}
-        this.checkForMedia();
 		this.set({
 			cid : this.cid
 		});
@@ -183,17 +271,12 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 	purge : function(){
 		var collection = this, counter = 0, counter2 = 0;
 		var toRemove = this.filter(function(t){
-            console.log(t.get('percentHome'));
 			return (!t.get('percentHome') || t.get('percentHome') < 0);
 		});
 		
 		_.each(toRemove, function(t){
-            console.log(t);
 			collection.remove(t);
 		});
-		collection.sortBy(function(t){
-            console.log(t);
-        });
         collection.at(0).set({
             isLast : true
         });

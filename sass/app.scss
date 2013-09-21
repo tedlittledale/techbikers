@@ -277,7 +277,49 @@ $tooltip-close-font-size: 12px;
 .top-bar li > a{
 	border-left: 1px solid #fff;
 }
-
+#footer{
+	h3, h4, p{
+		font-size: 22px;
+		font-weight: 200;
+		color: white;
+		margin-bottom: 10;
+	}
+	h3{
+		font-size: 22px;
+		font-weight: 300;
+		text-transform: uppercase;
+			margin-top: 20px;
+	}
+	.large-12:first-child h4{
+		margin-top: 20px;
+	}
+	p{
+		font-size: 20px;
+		line-height: 24px;
+	}
+	.large-4{
+		border-left: 1px solid #fff;
+		text-align: center;
+	}
+	.large-4:first-child{
+		border-left: 0;
+		text-align: left;
+		h3{
+		}
+		p{
+			line-height: 30px;
+		}
+	}
+	.large-12{
+		min-height: 210px;
+		img{
+			width: 80%;
+		}
+	}
+	.row{
+			margin-bottom: 0px;
+		}
+}
 @media only screen and (max-width: 768px) {
 	#progressArea{
 		.inner{
@@ -311,10 +353,14 @@ $tooltip-close-font-size: 12px;
 			line-height: 14px;
 		}
 	}
-	.arrow{
+	.arrow{ 
 		display: none;
 	}
 	.small-0{
 		display: none;
 	}
+	#footer .large-4{
+		border-left: 0px solid #777;
+	}
 }
+

@@ -11,10 +11,10 @@
 		<div class="small-2 large-2 columns">
 			<a href="#" id="prevTweet" class="{{#if isFirst}}disabled{{/if}}"><img src="assets/img/left.png"/></a>
 		</div>
-		<div class="small-8 large-8 columns">
+		<div class="small-10 large-8 columns">
 			<div class="row">
-				<!-- <div class="tweetText">
-				{{#normaliseTwitterData twitter}}
+				<div class="tweetText">
+				{{#normaliseTwitterData this}}
 					<div class="profile">
 						<img src="{{avatar}}">
 						{{#if name}}
@@ -40,9 +40,7 @@
 					<img src="{{mediaUrl}}" class="twitterImage">
 				</div>
 						
-				{{/if}} -->
-				<blockquote class="twitter-tweet"><p><a href="https://twitter.com/hannahblake123">@hannahblake123</a>: My legs are still hurting from very soggy <a href="https://twitter.com/techbikers">@techbikers</a> hill challenge ride. Love the <a href="https://twitter.com/search?q=%23bikesup&amp;src=hash">#bikesup</a> - <a href="http://t.co/SwPbFNHrw6">pic.twitter.com/SwPbFNHrw6</a>”</p>&mdash; Abby Schlageter (@abby_super) <a href="https://twitter.com/abby_super/statuses/378488475697565696">September 13, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+				{{/if}}
 			</div>
 			
 			
@@ -54,8 +52,8 @@
 		<div class="small-2 large-2 columns">
 			<a href="#" id="nextTweet" class="{{#if isLast}}disabled{{/if}}"><img src="assets/img/right.png"/></a>
 			<div class="details row">
-					<p>{{niceDateShort interaction.created_at}}</p>
-					<p>{{twentyFour interaction.created_at}}</p>
+					<p>{{niceDateShort created_at}}</p>
+					<p>{{twentyFour created_at}}</p>
 					<p><span data-tooltip class="has-tip" title="Distance to shoreditch (estimated cycle distance)!">DTS</span> : {{niceCount estimateHome}}KM</p>
 			</div>	
 		</div>

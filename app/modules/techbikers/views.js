@@ -33,7 +33,7 @@ function(app, Backbone, Handlebars, d3, _) {
 				center: new google.maps.LatLng(50.17827395732207, 0.6850681250000523),
 				zoom: 7,
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
-				disableDefaultUI: Modernizr.mq('only all and (max-width: 768px)') 
+				disableDefaultUI: Modernizr.mq('only all and (max-width: 768px)')
 			};
 			this.model.set({
 				mymap : new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
@@ -55,6 +55,12 @@ function(app, Backbone, Handlebars, d3, _) {
 				return false;
 			});
 			google.maps.event.addListener(this.model.get('mymap'), 'dragstart', function() {
+				view.hideTweet();
+				view.model.set({
+					selectedTweet:null
+				});
+			});
+			google.maps.event.addListener(this.model.get('mymap'), 'click', function() {
 				view.hideTweet();
 				view.model.set({
 					selectedTweet:null
@@ -96,12 +102,12 @@ function(app, Backbone, Handlebars, d3, _) {
 			tweets.each(function(t){
 				t.set({
 					marker : new google.maps.Marker({
-						position: new google.maps.LatLng(t.get('secondsync').geo.lat, t.get('secondsync').geo.lon),
+						position: new google.maps.LatLng(t.get('geo').coordinates[0], t.get('geo').coordinates[1]),
 						map: view.model.get('mymap'),
 						draggable: false,
 						animation: google.maps.Animation.DROP,
 						model : t,
-						icon : 'assets/img/bike-icon.png'
+						icon : (t.get('isBiker') && t.get('isOnRide')) ? 'assets/img/bike-icon-blue.png'  : 'assets/img/bike-icon.png'
 					})
 				});
 				google.maps.event.addListener(t.get('marker'), 'click', function() {
