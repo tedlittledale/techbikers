@@ -19,6 +19,7 @@
 						<img src="{{avatar}}">
 						{{#if name}}
 						<h4>{{name}} <br/><a href="http://twitter.com/{{handle}}" target="_blank">@{{handle}}</a></h4>
+
 						{{else}}
 
 						<h4><a href="http://twitter.com/{{handle}}" target="_blank" >@{{handle}}</a></h4>
@@ -41,6 +42,17 @@
 				</div>
 						
 				{{/if}}
+				<div class="details ">
+					<p>{{niceDateShort created_at}}</p>
+					<p>{{twentyFour timestamp}}</p>
+					<p><span data-tooltip class="has-tip" title="Distance to shoreditch (estimated cycle distance)!">DTS</span> : {{niceCount estimateHome}}KM</p>
+				</div>	
+				<div id="twitterActions">
+					<a href="https://twitter.com/intent/tweet?in_reply_to={{author.id_str}}"><span class="reply"></span>Reply</a>
+					<a href="https://twitter.com/intent/retweet?tweet_id={{id_str}}" class=""><span class="retweet"></span>Retweet</a>
+					<a href="https://twitter.com/intent/favorite?tweet_id={{id_str}}" class=""><span class="favourite"></span>Favorite</a>
+				</div>
+				
 			</div>
 			
 			

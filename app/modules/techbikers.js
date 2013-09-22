@@ -84,7 +84,7 @@ function(app, Backbone, Views) {
         ready : false,
         selectedTweet : null
     },
-    url : '/tweetdata/techbiker-tweets.json',
+    url : '/data/tweets.json',
     parse :  function(data){
         return data;
     },
@@ -189,7 +189,7 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
         isLast : false
 	},
 	getDistanceFromLatLonInKm : function(lat1,lon1,lat2,lon2) {
-		var PARIS = 342.2521718066369, PARISROUTE = 450;
+		var PARIS = 342.2521718066369, PARISROUTE = 320;
 		function deg2rad(deg) {
 			return deg * (Math.PI/180);
 		}
