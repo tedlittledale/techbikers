@@ -257,7 +257,10 @@ Handlebars.registerHelper("niceDate", function(timeString, fn) {
 
 });
 Handlebars.registerHelper("niceDateShort", function(timeString, fn) {
-	var thisDate = new Date(Date.parse(timeString));
+	if(typeof timeString === "string" && timeString.indexOf(':') === -1){//if it's a unix number not a date sting
+		timeString = parseInt(timeString, 10);
+	}
+	var thisDate = new Date(timeString);
 	function twosf(pos){
 		var position = pos+"";
 	if(position.length === 1){

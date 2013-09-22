@@ -11,7 +11,7 @@
 		<div class="small-2 large-2 columns">
 			<a href="#" id="prevTweet" class="{{#if isFirst}}disabled{{/if}}"><img src="assets/img/left.png"/></a>
 		</div>
-		<div class="small-10 large-8 columns">
+		<div class="small-8 large-8 columns">
 			<div class="row">
 				<div class="tweetText">
 				{{#normaliseTwitterData this}}
@@ -53,7 +53,7 @@
 			<a href="#" id="nextTweet" class="{{#if isLast}}disabled{{/if}}"><img src="assets/img/right.png"/></a>
 			<div class="details row">
 					<p>{{niceDateShort created_at}}</p>
-					<p>{{twentyFour created_at}}</p>
+					<p>{{twentyFour timestamp}}</p>
 					<p><span data-tooltip class="has-tip" title="Distance to shoreditch (estimated cycle distance)!">DTS</span> : {{niceCount estimateHome}}KM</p>
 			</div>	
 		</div>

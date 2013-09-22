@@ -91,6 +91,7 @@ function(app, Backbone, Handlebars, d3, _) {
 			// }, 800);
 		},
 		showTweet : function(){
+			console.log(this.model.get('selectedTweet').toJSON());
 			$('#tweetDetails').html(this.template(this.model.get('selectedTweet').toJSON()));
 			$('#tweetDetails').addClass('active');
 		},
