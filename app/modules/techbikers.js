@@ -4,15 +4,17 @@ define([
 
   // Third-party libraries.
   "backbone",
-  "modules/techbikers/views"
+  "modules/techbikers/views",
+  "foundation",
+  "tooltips"
 ],
 
 function(app, Backbone, Views) {
   var Techbikers = app.module();
   Techbikers.Models = {};
   Techbikers.Collections = {};
-  Techbikers.RIDESTART = 1279696400000;
-  Techbikers.RIDEEND = 1389762059278;
+  Techbikers.RIDESTART = 1380272400000;
+  Techbikers.RIDEEND = 1380452400000;
   Techbikers.BIKERS = ["abby_super",
 "abechoi",
 "eyesnight",
@@ -71,6 +73,7 @@ function(app, Backbone, Views) {
 "sam_strong",
 "sebzz",
 "scmurphy",
+"techbikers",
 "tomalterman",
 "limxinsiang",
 "udishitrit",
@@ -107,9 +110,7 @@ function(app, Backbone, Views) {
         this.fetch({
             dataType : 'json',
             success : function(data, d){
-                model.get('tweets').reset(d);
-                model.get('alltweets').reset(d);
-
+                model.get('tweets').add(d);
                 model.get('tweets').purge();
                 model.set('');
                 model.set('ready');
@@ -236,14 +237,13 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
             return thisHandle.toLowerCase() === handle.toLowerCase();
         });
         if(biker){
-            console.log(new Date(this.get('timestamp')) , new Date(Techbikers.RIDESTART));
             this.set({
                 isBiker : true,
                 isOnRide : (this.get('timestamp') > Techbikers.RIDESTART) && (this.get('timestamp') < Techbikers.RIDEEND)
             });
         }
         else{
-            console.log('notbiker');
+            
         }
     },
 	initialize: function(){
@@ -257,6 +257,7 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
             this.checkForMediaEntities();
             this.checkIsBiker();
 		}
+        
 		this.set({
 			cid : this.cid
 		});
@@ -267,7 +268,6 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 	model : Techbikers.Models.Tweet,
     comparator : function(t){
         //return t.distanceToHome;
-        console.log(t);
         return t.get('distanceToHome');
     },
 	purge : function(){
@@ -278,12 +278,15 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 		_.each(toRemove, function(t){
 			collection.remove(t);
 		});
-        collection.at(0).set({
-            isLast : true
-        });
-        collection.at(collection.length-1).set({
-            isFirst : true
-        });
+        if(collection.at(0)){
+            collection.at(0).set({
+                isLast : true
+            });
+            collection.at(collection.length-1).set({
+                isFirst : true
+            });
+        }
+        
 	}
   });
 

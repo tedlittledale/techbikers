@@ -211,7 +211,7 @@ $tooltip-close-font-size: 12px;
 #tweetDetails{
 	position: absolute;
 	width: 600px;
-	top: 280px;
+	top: 305px;
 	right:-100%;
 	@include transition-property(right);
   	@include transition-duration(1s);
@@ -301,6 +301,9 @@ $tooltip-close-font-size: 12px;
 	}
 	.large-8 .details{
 		display: none;
+	}
+	.media{
+		margin-bottom: 10px;
 	}
 }
 .top-bar{

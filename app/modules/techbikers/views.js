@@ -77,7 +77,6 @@ function(app, Backbone, Handlebars, d3, _) {
 		goToMarker : function(){
 			var xPan = ($('body').width() / 2) - $('#tweetDetails').outerWidth() - 30,
 				map = this.model.get('mymap');
-			console.log(xPan);
 			if(map.getZoom() < 10){
 				map.setZoom(10);
 			}
@@ -91,7 +90,6 @@ function(app, Backbone, Handlebars, d3, _) {
 			// }, 800);
 		},
 		showTweet : function(){
-			console.log(this.model.get('selectedTweet').toJSON());
 			$('#tweetDetails').html(this.template(this.model.get('selectedTweet').toJSON()));
 			$('#tweetDetails').addClass('active');
 		},
@@ -101,24 +99,27 @@ function(app, Backbone, Handlebars, d3, _) {
 		addMarkers : function(){
 			var tweets = this.model.get('tweets'), markers = [], view = this;
 			tweets.each(function(t){
-				t.set({
-					marker : new google.maps.Marker({
-						position: new google.maps.LatLng(t.get('geo').coordinates[0], t.get('geo').coordinates[1]),
-						map: view.model.get('mymap'),
-						draggable: false,
-						animation: google.maps.Animation.DROP,
-						model : t,
-						icon : (t.get('isBiker') && t.get('isOnRide')) ? 'assets/img/bike-icon-blue.png'  : 'assets/img/bike-icon.png'
-					})
-				});
-				google.maps.event.addListener(t.get('marker'), 'click', function() {
-					view.model.set({
-						selectedTweet : null
+				if(t.get('isOnRide')){
+					t.set({
+						marker : new google.maps.Marker({
+							position: new google.maps.LatLng(t.get('geo').coordinates[0], t.get('geo').coordinates[1]),
+							map: view.model.get('mymap'),
+							draggable: false,
+							animation: google.maps.Animation.DROP,
+							model : t,
+							icon : (t.get('isBiker') && t.get('isOnRide')) ? 'assets/img/bike-icon-blue.png'  : 'assets/img/bike-icon.png'
+						})
 					});
-					view.model.set({
-						selectedTweet : this.model
+					google.maps.event.addListener(t.get('marker'), 'click', function() {
+						view.model.set({
+							selectedTweet : null
+						});
+						view.model.set({
+							selectedTweet : this.model
+						});
 					});
-				});
+				}
+				
 			});
 		},
 		getTemplates : function(){
@@ -170,7 +171,6 @@ function(app, Backbone, Handlebars, d3, _) {
 		},
 		moveDetails : function(marker){
 			var top = marker.offset().top;
-			console.log(top);
 			$('#mobileDetails').css({
 				top : top + 20+'px'
 			});
