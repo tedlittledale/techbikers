@@ -56,8 +56,9 @@ $tooltip-close-font-size: 12px;
 // @import "foundation/components/dropdown";
 @import "compass/css3";
 
-
-
+html, body{
+	overflow-x:hidden;
+}
 
 #progressBar{
 	height: 4px;
@@ -306,6 +307,7 @@ $tooltip-close-font-size: 12px;
 		margin-bottom: 10px;
 	}
 }
+
 .top-bar{
 	position: relative;
 	.line{
@@ -447,6 +449,16 @@ div.attribution{
 	}
 	#footer .large-4{
 		border-left: 0px solid #777;
+	}
+	#twitterActions{
+		margin-top: 10px;
+	a{
+		display: block;
+		float: left;
+		font-size: 12px;
+		color: #bbb;
+		margin-right: 5px;
+	}
 	}
 }
 

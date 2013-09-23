@@ -13,7 +13,7 @@ function(app, Backbone, Views) {
   var Techbikers = app.module();
   Techbikers.Models = {};
   Techbikers.Collections = {};
-  Techbikers.RIDESTART = 1380272400000;
+  Techbikers.RIDESTART = 1280272400000;//1380272400000;
   Techbikers.RIDEEND = 1380452400000;
   Techbikers.BIKERS = ["abby_super",
 "abechoi",
@@ -89,6 +89,7 @@ function(app, Backbone, Views) {
     },
     url : '/data/tweets.json',
     parse :  function(data){
+        console.log(data.length);
         return data;
     },
     initialize : function(){
@@ -112,7 +113,6 @@ function(app, Backbone, Views) {
             success : function(data, d){
                 model.get('tweets').add(d);
                 model.get('tweets').purge();
-                model.set('');
                 model.set('ready');
                 
 
@@ -272,8 +272,8 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
     },
 	purge : function(){
 		var collection = this, counter = 0, counter2 = 0;
-		var toRemove = this.filter(function(t){
-			return (!t.get('percentHome') || t.get('percentHome') < 0);
+		var toRemove = this.reject(function(t){
+			return t.get('isOnRide') && t.get('isBiker');
 		});
 		_.each(toRemove, function(t){
 			collection.remove(t);
