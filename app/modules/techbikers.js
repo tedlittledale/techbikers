@@ -15,6 +15,10 @@ function(app, Backbone, Views) {
   Techbikers.Collections = {};
   Techbikers.RIDESTART = 1280272400000;//1380272400000;
   Techbikers.RIDEEND = 1380452400000;
+  Techbikers.STARTPOINT = [48.858228, 2.294388];
+  Techbikers.ENDPOINT = [51.52271, -0.085579];
+  Techbikers.TOTALDISTACEDIRECT = 342.2521718066369;
+  Techbikers.PARISROUTE = 320;
   Techbikers.BIKERS = ["abby_super",
 "abechoi",
 "eyesnight",
@@ -103,11 +107,31 @@ function(app, Backbone, Views) {
                 selectedTweet : prev
             });
         }
-        
+    },
+    getTotalDistance : function() {
+        lat1 = Techbikers.STARTPOINT[0];
+        lon1 = Techbikers.STARTPOINT[1];
+        lat2 = Techbikers.ENDPOINT[0];
+        lon2 = Techbikers.ENDPOINT[1];
+        function deg2rad(deg) {
+            return deg * (Math.PI/180);
+        }
+        var R = 6371; // Radius of the earth in km
+        var dLat = deg2rad(lat2-lat1);  // deg2rad below
+        var dLon = deg2rad(lon2-lon1);
+        var a =
+        Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+        Math.sin(dLon/2) * Math.sin(dLon/2)
+        ;
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var d = R * c; // Distance in km
+        Techbikers.TOTALDISTACEDIRECT = d;
     },
     start : function(){
         _.bindAll(this);
         var model = this;
+        this.getTotalDistance();
         this.fetch({
             dataType : 'json',
             success : function(data, d){
@@ -204,10 +228,10 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 		;
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 		var d = R * c; // Distance in km
-		var percentHome = (PARIS - d) / PARIS;
+		var percentHome = (Techbikers.TOTALDISTACEDIRECT - d) / Techbikers.TOTALDISTACEDIRECT;
 		this.set({
 			distanceToHome : d,
-            estimateHome : PARISROUTE * (1 -percentHome),
+            estimateHome : Techbikers.PARISROUTE * (1 -percentHome),
 			percentHome : percentHome * 100
 		});
 	},
