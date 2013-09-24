@@ -4,9 +4,7 @@ define([
 
   // Third-party libraries.
   "backbone",
-  "modules/techbikers/views",
-  "foundation",
-  "tooltips"
+  "modules/techbikers/views"
 ],
 
 function(app, Backbone, Views) {

@@ -15,9 +15,7 @@ require.config({
     modernizr: "../javascripts/vendor/custom.modernizr",
     backbone: "../assets/js/libs/backbone-min",
     swipe: "../assets/js/libs/plugins/swipe",
-    d3: "../assets/js/libs/d3",
-    foundation : "../javascripts/foundation/foundation",
-    tooltips : "../javascripts/foundation/foundation.tooltips"
+    d3: "../assets/js/libs/d3"
   },
 underscorerlArgs: "bust=v"+Math.round(Math.random()*1000000),
   shim: {

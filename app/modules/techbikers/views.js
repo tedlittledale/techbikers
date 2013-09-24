@@ -9,9 +9,7 @@ define([
   "modernizr",
   "jquery",
   "helpers",
-  "swipe",
-  "foundation",
-  "tooltips"
+  "swipe"
 ],
 
 function(app, Backbone, Handlebars, d3, _) {
@@ -59,6 +57,15 @@ function(app, Backbone, Handlebars, d3, _) {
 				view.model.set({
 					selectedTweet:null
 				});
+			});
+			$('body').on('click', function() {
+				console.log(event.target.nodeName);
+				if(event.target.nodeName !== 'A' && event.target.nodeName !== 'CANVAS'){
+					view.hideTweet();
+					view.model.set({
+						selectedTweet:null
+					});
+				}
 			});
 			google.maps.event.addListener(this.model.get('mymap'), 'click', function() {
 				view.hideTweet();
