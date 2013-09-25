@@ -52,13 +52,13 @@ Handlebars.registerHelper('normaliseTwitterData', function(twitter, options) {
   return options.fn(normalised);
 });
 Handlebars.registerHelper('textToLinks', function(text, options) {
-	console.log(text);
+	
 	var returnText;
     var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
     returnText = text.replace(exp,'<a href="$1" target="_blank">$1</a>');
-    console.log(returnText);
+    
     returnText = returnText.replace(/[@]+[A-Za-z0-9-_]+/g, function(u) {
-		var username = u.replace("@","")
+		var username = u.replace("@","");
 		var link = document.createElement("a");
 		link.setAttribute("href", "http://twitter.com/"+username);
 		link.appendChild(document.createTextNode('@'+username));

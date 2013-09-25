@@ -32,6 +32,7 @@ function(app, Backbone, Views) {
 "inthcompanyof",
 "bindik",
 "CassieRobinson",
+"CavemanKLAUS",
 "clairecockerton",
 "cbm",
 "websummithq",
@@ -91,7 +92,6 @@ function(app, Backbone, Views) {
     },
     url : '/data/tweets.json',
     parse :  function(data){
-        console.log(data.length);
         return data;
     },
     initialize : function(){
@@ -133,11 +133,16 @@ function(app, Backbone, Views) {
         this.fetch({
             dataType : 'json',
             success : function(data, d){
+                if(!d || d.length === 0){
+                    model.start();
+                    return;
+                }
                 model.get('tweets').add(d);
                 model.get('tweets').purge();
                 model.set('ready');
-                
-
+            },
+            failure : function(){
+                model.start();
             }
         });
     }
