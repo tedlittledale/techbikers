@@ -111,7 +111,7 @@ function(app, Backbone, Handlebars, d3, _) {
 		addMarkers : function(){
 			var tweets = this.model.get('tweets'), markers = [], view = this;
 			tweets.each(function(t){
-				if(t.get('isOnRide')){
+				if(t.get('isOnRide') || t.get('isOnTrain')){
 					t.set({
 						marker : new google.maps.Marker({
 							position: new google.maps.LatLng(t.get('geo').coordinates[0], t.get('geo').coordinates[1]),
@@ -119,7 +119,7 @@ function(app, Backbone, Handlebars, d3, _) {
 							draggable: false,
 							animation: google.maps.Animation.DROP,
 							model : t,
-							icon : (t.get('isBiker') && t.get('isOnRide')) ? 'assets/img/bike-icon-blue.png'  : 'assets/img/bike-icon.png'
+							icon : (t.get('isOnRide')) ? 'assets/img/bike-icon-blue.png'  : 'assets/img/train.png'
 						})
 					});
 					google.maps.event.addListener(t.get('marker'), 'click', function() {

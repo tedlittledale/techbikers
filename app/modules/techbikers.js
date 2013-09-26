@@ -11,8 +11,9 @@ function(app, Backbone, Views) {
   var Techbikers = app.module();
   Techbikers.Models = {};
   Techbikers.Collections = {};
-  Techbikers.RIDESTART = 1280272400000;//1380272400000;
-  Techbikers.RIDEEND = 1380452400000;
+  Techbikers.TRAINSTART = 1380042000000-(15 * 60 * 1000);
+  Techbikers.RIDESTART = 1380042000000;//1380272400000;
+  Techbikers.RIDEEND = 1380049200000;
   Techbikers.STARTPOINT = [48.858228, 2.294388];
   Techbikers.ENDPOINT = [51.52271, -0.085579];
   Techbikers.TOTALDISTACEDIRECT = 342.2521718066369;
@@ -266,6 +267,7 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
         if(biker){
             this.set({
                 isBiker : true,
+                isOnTrain : (this.get('timestamp') > Techbikers.TRAINSTART) && (this.get('timestamp') < Techbikers.RIDESTART),
                 isOnRide : (this.get('timestamp') > Techbikers.RIDESTART) && (this.get('timestamp') < Techbikers.RIDEEND)
             });
         }
@@ -300,7 +302,8 @@ Techbikers.Models.Tweet = Backbone.Model.extend({
 	purge : function(){
 		var collection = this, counter = 0, counter2 = 0;
 		var toRemove = this.reject(function(t){
-			return t.get('isOnRide') && t.get('isBiker');
+            console.log(t.get('isOnTrain'));
+			return (t.get('isOnRide') || t.get('isOnTrain')) && t.get('isBiker');
 		});
 		_.each(toRemove, function(t){
 			collection.remove(t);
