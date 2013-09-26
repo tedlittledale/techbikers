@@ -44,12 +44,18 @@ function(app, Backbone, Handlebars, d3, _) {
 					view.goToMarker();
 				}
 			});
-			$('#tweetDetails').on('click', '#prevTweet', function(){
+			$('#tweetDetails').on('mousedown', '#prevTweet', function(){
 				view.model.increment(1);
 				return false;
 			});
-			$('#tweetDetails').on('click', '#nextTweet', function(){
+			$('#tweetDetails').on('mousedown', '#nextTweet', function(){
 				view.model.increment(-1);
+				return false;
+			});
+			$('#tweetDetails').on('click', '#prevTweet', function(){
+				return false;
+			});
+			$('#tweetDetails').on('click', '#nextTweet', function(){
 				return false;
 			});
 			google.maps.event.addListener(this.model.get('mymap'), 'dragstart', function() {
@@ -59,7 +65,6 @@ function(app, Backbone, Handlebars, d3, _) {
 				});
 			});
 			$('body').on('click', function() {
-				console.log(event.target.nodeName);
 				if(event.target.nodeName !== 'A' && event.target.nodeName !== 'CANVAS'){
 					view.hideTweet();
 					view.model.set({
@@ -168,7 +173,7 @@ function(app, Backbone, Handlebars, d3, _) {
 					view.el.find('#progressBar').removeClass('active');
 				}
 			});
-			this.el.on('click', 'a', function(e){
+			this.el.on('mousedown', 'a', function(e){
 				view.model.set({
 					selectedTweet : view.model.get('tweets').get($(this).data('bbid'))
 				});
